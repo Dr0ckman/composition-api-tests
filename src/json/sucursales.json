@@ -1,0 +1,1736 @@
+[
+  {
+    "codigoSucursal": 2,
+    "sucursal": "AHUMADA PERSONAS III",
+    "modelo": "TRADICIONAL",
+    "territorial": "BARRIO CIVICO"
+  },
+  {
+    "codigoSucursal": 3,
+    "sucursal": "VALPARAISO",
+    "modelo": "TRADICIONAL",
+    "territorial": "QUINTA"
+  },
+  {
+    "codigoSucursal": 4,
+    "sucursal": "PROVIDENCIA",
+    "modelo": "TRADICIONAL",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 5,
+    "sucursal": "ENEA",
+    "modelo": "TRADICIONAL",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 7,
+    "sucursal": "VIÑA DEL MAR (ARLEGUI)",
+    "modelo": "TRADICIONAL",
+    "territorial": "QUINTA"
+  },
+  {
+    "codigoSucursal": 9,
+    "sucursal": "FRANKLIN",
+    "modelo": "TRADICIONAL",
+    "territorial": "BARRIO CIVICO"
+  },
+  {
+    "codigoSucursal": 10,
+    "sucursal": "MANUEL MONTT",
+    "modelo": "WORK CAFE",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 11,
+    "sucursal": "CONCEPCION",
+    "modelo": "TRADICIONAL",
+    "territorial": "CENTRO"
+  },
+  {
+    "codigoSucursal": 12,
+    "sucursal": "MIRAFLORES",
+    "modelo": "TRADICIONAL",
+    "territorial": "BARRIO CIVICO"
+  },
+  {
+    "codigoSucursal": 13,
+    "sucursal": "EL GOLF",
+    "modelo": "WORK CAFE",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 14,
+    "sucursal": "SAN JOAQUIN",
+    "modelo": "TRADICIONAL",
+    "territorial": "BARRIO CIVICO"
+  },
+  {
+    "codigoSucursal": 17,
+    "sucursal": "TEMUCO",
+    "modelo": "WORK CAFE",
+    "territorial": "SUR"
+  },
+  {
+    "codigoSucursal": 18,
+    "sucursal": "IRARRAZAVAL",
+    "modelo": "TRADICIONAL",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 20,
+    "sucursal": "10 DE JULIO",
+    "modelo": "TRADICIONAL",
+    "territorial": "BARRIO CIVICO"
+  },
+  {
+    "codigoSucursal": 21,
+    "sucursal": "TALCAHUANO",
+    "modelo": "TRADICIONAL",
+    "territorial": "CENTRO"
+  },
+  {
+    "codigoSucursal": 22,
+    "sucursal": "CHILLAN",
+    "modelo": "TRADICIONAL",
+    "territorial": "CENTRO"
+  },
+  {
+    "codigoSucursal": 23,
+    "sucursal": "CURICO",
+    "modelo": "TRADICIONAL",
+    "territorial": "CENTRO"
+  },
+  {
+    "codigoSucursal": 25,
+    "sucursal": "LA SERENA BALMACEDA",
+    "modelo": "TRADICIONAL",
+    "territorial": "NORTE"
+  },
+  {
+    "codigoSucursal": 26,
+    "sucursal": "TALCA PLAZA",
+    "modelo": "TRADICIONAL",
+    "territorial": "CENTRO"
+  },
+  {
+    "codigoSucursal": 29,
+    "sucursal": "APUMANQUE",
+    "modelo": "TRADICIONAL",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 31,
+    "sucursal": "ANTOFAGASTA",
+    "modelo": "TRADICIONAL",
+    "territorial": "NORTE"
+  },
+  {
+    "codigoSucursal": 32,
+    "sucursal": "PUERTO MONTT",
+    "modelo": "TRADICIONAL",
+    "territorial": "SUR"
+  },
+  {
+    "codigoSucursal": 33,
+    "sucursal": "WORK CAFE EXPRESSO RANCAGUA",
+    "modelo": "WORK CAFE",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 33,
+    "sucursal": "WORK CAFE EXPRESSO RANCAGUA",
+    "modelo": "WORK CAFE",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 35,
+    "sucursal": "VICUÑA MACKENNA",
+    "modelo": "TRADICIONAL",
+    "territorial": "BARRIO CIVICO"
+  },
+  {
+    "codigoSucursal": 40,
+    "sucursal": "ISIDORA GOYENECHEA",
+    "modelo": "WORK CAFE",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 42,
+    "sucursal": "CERRILLOS",
+    "modelo": "TRADICIONAL",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 43,
+    "sucursal": "VALDIVIA ARAUCO",
+    "modelo": "TRADICIONAL",
+    "territorial": "SUR"
+  },
+  {
+    "codigoSucursal": 44,
+    "sucursal": "IQUIQUE 21 DE MAYO",
+    "modelo": "TRADICIONAL",
+    "territorial": "NORTE"
+  },
+  {
+    "codigoSucursal": 45,
+    "sucursal": "ARICA BOLOGNESI",
+    "modelo": "TRADICIONAL",
+    "territorial": "NORTE"
+  },
+  {
+    "codigoSucursal": 48,
+    "sucursal": "SAN ANTONIO CENTRO",
+    "modelo": "TRADICIONAL",
+    "territorial": "QUINTA"
+  },
+  {
+    "codigoSucursal": 50,
+    "sucursal": "GRAN AVENIDA",
+    "modelo": "TRADICIONAL",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 51,
+    "sucursal": "COPIAPO",
+    "modelo": "TRADICIONAL",
+    "territorial": "NORTE"
+  },
+  {
+    "codigoSucursal": 54,
+    "sucursal": "PLAZA BULNES",
+    "modelo": "TRADICIONAL",
+    "territorial": "BARRIO CIVICO"
+  },
+  {
+    "codigoSucursal": 57,
+    "sucursal": "LO CURRO",
+    "modelo": "TRADICIONAL",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 58,
+    "sucursal": "SAN BERNARDO",
+    "modelo": "TRADICIONAL",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 59,
+    "sucursal": "LOS ANGELES",
+    "modelo": "TRADICIONAL",
+    "territorial": "CENTRO"
+  },
+  {
+    "codigoSucursal": 61,
+    "sucursal": "PRINCIPE DE GALES",
+    "modelo": "TRADICIONAL",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 63,
+    "sucursal": "MATUCANA",
+    "modelo": "TRADICIONAL",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 65,
+    "sucursal": "NUEVA LOS DOMINICOS",
+    "modelo": "TRADICIONAL",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 66,
+    "sucursal": "LAS CONDES",
+    "modelo": "TRADICIONAL",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 67,
+    "sucursal": "VITACURA",
+    "modelo": "TRADICIONAL",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 69,
+    "sucursal": "CORACEROS",
+    "modelo": "TRADICIONAL",
+    "territorial": "QUINTA"
+  },
+  {
+    "codigoSucursal": 70,
+    "sucursal": "CALAMA",
+    "modelo": "TRADICIONAL",
+    "territorial": "NORTE"
+  },
+  {
+    "codigoSucursal": 75,
+    "sucursal": "VALPARISO PASEO ROSS",
+    "modelo": "NMS",
+    "territorial": "QUINTA"
+  },
+  {
+    "codigoSucursal": 80,
+    "sucursal": "CAJA AUX. ENAP TALCAHUANO",
+    "modelo": "CAJA AUXILIAR",
+    "territorial": "CENTRO"
+  },
+  {
+    "codigoSucursal": 84,
+    "sucursal": "SAN DAMIAN",
+    "modelo": "WORK CAFE",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 86,
+    "sucursal": "NUEVA PUENTE ALTO",
+    "modelo": "TRADICIONAL",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 87,
+    "sucursal": "ALONSO DE CORDOVA",
+    "modelo": "WORK CAFE",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 88,
+    "sucursal": "PLAZA EL GOLF",
+    "modelo": "WORK CAFE",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 89,
+    "sucursal": "CAJA AUX TERRAPUERTO LOS ANDES",
+    "modelo": "CAJA AUXILIAR",
+    "territorial": "QUINTA"
+  },
+  {
+    "codigoSucursal": 92,
+    "sucursal": "MALL PLAZA NORTE",
+    "modelo": "TRADICIONAL",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 100,
+    "sucursal": "LOS TRAPENSES",
+    "modelo": "TRADICIONAL",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 101,
+    "sucursal": "EL RODEO",
+    "modelo": "TRADICIONAL",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 104,
+    "sucursal": "MACUL",
+    "modelo": "TRADICIONAL",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 107,
+    "sucursal": "CASTRO",
+    "modelo": "WORK CAFE",
+    "territorial": "SUR"
+  },
+  {
+    "codigoSucursal": 109,
+    "sucursal": "MAIPU",
+    "modelo": "TRADICIONAL",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 110,
+    "sucursal": "QUILPUE",
+    "modelo": "TRADICIONAL",
+    "territorial": "QUINTA"
+  },
+  {
+    "codigoSucursal": 111,
+    "sucursal": "CONCEPCION PEDRO DE VALDIVIA",
+    "modelo": "TRADICIONAL",
+    "territorial": "CENTRO"
+  },
+  {
+    "codigoSucursal": 112,
+    "sucursal": "EL TREBOL",
+    "modelo": "WORK CAFE",
+    "territorial": "CENTRO"
+  },
+  {
+    "codigoSucursal": 113,
+    "sucursal": "QUILLOTA",
+    "modelo": "TRADICIONAL",
+    "territorial": "QUINTA"
+  },
+  {
+    "codigoSucursal": 117,
+    "sucursal": "PLAZA EGANA",
+    "modelo": "TRADICIONAL",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 118,
+    "sucursal": "LA FLORIDA",
+    "modelo": "TRADICIONAL",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 120,
+    "sucursal": "CIUDAD EMPRESARIAL",
+    "modelo": "TRADICIONAL",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 123,
+    "sucursal": "CONCEPCION PLAZA INDEPENDENCIA",
+    "modelo": "WORK CAFE",
+    "territorial": "CENTRO"
+  },
+  {
+    "codigoSucursal": 124,
+    "sucursal": "EL COBRE",
+    "modelo": "WORK CAFE",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 125,
+    "sucursal": "ANTOFAGASTA AV.BRASIL",
+    "modelo": "TRADICIONAL",
+    "territorial": "NORTE"
+  },
+  {
+    "codigoSucursal": 133,
+    "sucursal": "MALL LOS DOMINICOS",
+    "modelo": "WORK CAFE",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 136,
+    "sucursal": "PUERTO NUEVO ANTOFAGASTA",
+    "modelo": "WORK CAFE",
+    "territorial": "NORTE"
+  },
+  {
+    "codigoSucursal": 138,
+    "sucursal": "OSORNO CATEDRAL",
+    "modelo": "WORK CAFE",
+    "territorial": "SUR"
+  },
+  {
+    "codigoSucursal": 141,
+    "sucursal": "TORRE ISIDORA",
+    "modelo": "TRADICIONAL",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 142,
+    "sucursal": "CHICUREO",
+    "modelo": "TRADICIONAL",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 143,
+    "sucursal": "CAJA AUX. UC DEL NORTE",
+    "modelo": "CAJA AUXILIAR",
+    "territorial": "NORTE"
+  },
+  {
+    "codigoSucursal": 145,
+    "sucursal": "SANTA CRUZ",
+    "modelo": "TRADICIONAL",
+    "territorial": "CENTRO"
+  },
+  {
+    "codigoSucursal": 146,
+    "sucursal": "CAJA AUX. U. DE TARAPACA",
+    "modelo": "CAJA AUXILIAR",
+    "territorial": "NORTE"
+  },
+  {
+    "codigoSucursal": 147,
+    "sucursal": "PORTAL LA DEHESA",
+    "modelo": "WORK CAFE",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 148,
+    "sucursal": "MANQUEHUE",
+    "modelo": "WORK CAFE",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 150,
+    "sucursal": "SUCURSAL EN LINEA",
+    "modelo": "VOX",
+    "territorial": "CANALES"
+  },
+  {
+    "codigoSucursal": 151,
+    "sucursal": "NUEVA BANDERA",
+    "modelo": "WORK CAFE",
+    "territorial": "BARRIO CIVICO"
+  },
+  {
+    "codigoSucursal": 153,
+    "sucursal": "ESTACION CENTRAL",
+    "modelo": "TRADICIONAL",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 156,
+    "sucursal": "PEDRO DE VALDIVIA",
+    "modelo": "WORK CAFE",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 158,
+    "sucursal": "UNIVERSIDAD DE CHILE",
+    "modelo": "WORK CAFE",
+    "territorial": "BARRIO CIVICO"
+  },
+  {
+    "codigoSucursal": 160,
+    "sucursal": "PASEO QUILIN",
+    "modelo": "TRADICIONAL",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 161,
+    "sucursal": "HOSPITAL FACH",
+    "modelo": "TRADICIONAL",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 162,
+    "sucursal": "ÑUÑOA",
+    "modelo": "WORK CAFE",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 164,
+    "sucursal": "SAN MIGUEL",
+    "modelo": "TRADICIONAL",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 171,
+    "sucursal": "ALMENDRAL",
+    "modelo": "TRADICIONAL",
+    "territorial": "QUINTA"
+  },
+  {
+    "codigoSucursal": 172,
+    "sucursal": "VIÑA PLAZA",
+    "modelo": "TRADICIONAL",
+    "territorial": "QUINTA"
+  },
+  {
+    "codigoSucursal": 175,
+    "sucursal": "PANAMERICANA NORTE",
+    "modelo": "TRADICIONAL",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 177,
+    "sucursal": "CANDELARIA GOYENECHEA",
+    "modelo": "WORK CAFE",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 178,
+    "sucursal": "JOSE PEDRO ALESSANDRI",
+    "modelo": "TRADICIONAL",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 180,
+    "sucursal": "IQUIQUE PLAZA",
+    "modelo": "TRADICIONAL",
+    "territorial": "NORTE"
+  },
+  {
+    "codigoSucursal": 181,
+    "sucursal": "BANCA CORPORATIVA",
+    "modelo": "CONTABLE",
+    "territorial": "BANCA EMPRESAS"
+  },
+  {
+    "codigoSucursal": 183,
+    "sucursal": "ANTOFAGASTA PLAZA",
+    "modelo": "TRADICIONAL",
+    "territorial": "NORTE"
+  },
+  {
+    "codigoSucursal": 184,
+    "sucursal": "LA REINA",
+    "modelo": "WORK CAFE",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 185,
+    "sucursal": "BELLAS ARTES",
+    "modelo": "WORK CAFE",
+    "territorial": "BARRIO CIVICO"
+  },
+  {
+    "codigoSucursal": 186,
+    "sucursal": "LA SERENA PLAZA",
+    "modelo": "TRADICIONAL",
+    "territorial": "NORTE"
+  },
+  {
+    "codigoSucursal": 188,
+    "sucursal": "COPIAPO O\"HIGGINS",
+    "modelo": "TRADICIONAL",
+    "territorial": "NORTE"
+  },
+  {
+    "codigoSucursal": 189,
+    "sucursal": "COQUIMBO BENAVENTE",
+    "modelo": "TRADICIONAL",
+    "territorial": "NORTE"
+  },
+  {
+    "codigoSucursal": 190,
+    "sucursal": "CERRO EL PLOMO",
+    "modelo": "WORK CAFE",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 192,
+    "sucursal": "SAN FELIPE PLAZA",
+    "modelo": "TRADICIONAL",
+    "territorial": "QUINTA"
+  },
+  {
+    "codigoSucursal": 193,
+    "sucursal": "EL CORTIJO",
+    "modelo": "TRADICIONAL",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 195,
+    "sucursal": "LOS ANDES",
+    "modelo": "TRADICIONAL",
+    "territorial": "QUINTA"
+  },
+  {
+    "codigoSucursal": 197,
+    "sucursal": "FRANCISCO DE ASIS",
+    "modelo": "TRADICIONAL",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 198,
+    "sucursal": "RANCAGUA PASEO",
+    "modelo": "TRADICIONAL",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 199,
+    "sucursal": "BILBAO",
+    "modelo": "TRADICIONAL",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 203,
+    "sucursal": "GRANDES EMPRESAS",
+    "modelo": "TRADICIONAL",
+    "territorial": "BANCA EMPRESAS"
+  },
+  {
+    "codigoSucursal": 204,
+    "sucursal": "BANCA INSTITUCIONAL",
+    "modelo": "CONTABLE",
+    "territorial": "BANCA EMPRESAS"
+  },
+  {
+    "codigoSucursal": 205,
+    "sucursal": "BANCA EMPRESAS",
+    "modelo": "CONTABLE",
+    "territorial": "BANCA EMPRESAS"
+  },
+  {
+    "codigoSucursal": 206,
+    "sucursal": "MATRIZ PYME",
+    "modelo": "TRADICIONAL",
+    "territorial": "BARRIO CIVICO"
+  },
+  {
+    "codigoSucursal": 207,
+    "sucursal": "PLAZA DE ARMAS",
+    "modelo": "WORK CAFE",
+    "territorial": "BARRIO CIVICO"
+  },
+  {
+    "codigoSucursal": 209,
+    "sucursal": "PLAZA OESTE",
+    "modelo": "TRADICIONAL",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 211,
+    "sucursal": "ALCANTARA",
+    "modelo": "WORK CAFE",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 213,
+    "sucursal": "CAMPUS U. DE TALCA",
+    "modelo": "WORK CAFE",
+    "territorial": "CENTRO"
+  },
+  {
+    "codigoSucursal": 214,
+    "sucursal": "PLAZA PERU",
+    "modelo": "WORK CAFE",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 216,
+    "sucursal": "PASEO BALMACEDA",
+    "modelo": "WORK CAFE",
+    "territorial": "NORTE"
+  },
+  {
+    "codigoSucursal": 219,
+    "sucursal": "MALL CALAMA",
+    "modelo": "WORK CAFE",
+    "territorial": "NORTE"
+  },
+  {
+    "codigoSucursal": 220,
+    "sucursal": "LA PORTADA ANTOFAGASTA",
+    "modelo": "WORK CAFE",
+    "territorial": "NORTE"
+  },
+  {
+    "codigoSucursal": 221,
+    "sucursal": "VILLARRICA",
+    "modelo": "TRADICIONAL",
+    "territorial": "SUR"
+  },
+  {
+    "codigoSucursal": 222,
+    "sucursal": "LOS ANGELES PLAZA",
+    "modelo": "TRADICIONAL",
+    "territorial": "CENTRO"
+  },
+  {
+    "codigoSucursal": 224,
+    "sucursal": "CAJA AUX. U. DEL DESARROLLO LAS CONDES",
+    "modelo": "CAJA AUXILIAR",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 225,
+    "sucursal": "ANGOL",
+    "modelo": "TRADICIONAL",
+    "territorial": "SUR"
+  },
+  {
+    "codigoSucursal": 226,
+    "sucursal": "LA UNION",
+    "modelo": "TRADICIONAL",
+    "territorial": "SUR"
+  },
+  {
+    "codigoSucursal": 227,
+    "sucursal": "CAMPUS SAN JOAQUIN",
+    "modelo": "WORK CAFE",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 228,
+    "sucursal": "TRAIGUEN",
+    "modelo": "TRADICIONAL",
+    "territorial": "SUR"
+  },
+  {
+    "codigoSucursal": 229,
+    "sucursal": "SANTA LUCIA",
+    "modelo": "TRADICIONAL",
+    "territorial": "BARRIO CIVICO"
+  },
+  {
+    "codigoSucursal": 230,
+    "sucursal": "SAN ANTONIO",
+    "modelo": "TRADICIONAL",
+    "territorial": "QUINTA"
+  },
+  {
+    "codigoSucursal": 231,
+    "sucursal": "VICTORIA",
+    "modelo": "TRADICIONAL",
+    "territorial": "SUR"
+  },
+  {
+    "codigoSucursal": 232,
+    "sucursal": "BANCA INMOBILIARIA",
+    "modelo": "CONTABLE",
+    "territorial": "BANCA EMPRESAS"
+  },
+  {
+    "codigoSucursal": 234,
+    "sucursal": "TEMUCO PLAZA",
+    "modelo": "TRADICIONAL",
+    "territorial": "SUR"
+  },
+  {
+    "codigoSucursal": 237,
+    "sucursal": "VALDIVIA",
+    "modelo": "TRADICIONAL",
+    "territorial": "SUR"
+  },
+  {
+    "codigoSucursal": 238,
+    "sucursal": "UNIVERSIDAD AUSTRAL VALDIVIA",
+    "modelo": "TRADICIONAL",
+    "territorial": "SUR"
+  },
+  {
+    "codigoSucursal": 240,
+    "sucursal": "OSORNO PLAZA",
+    "modelo": "TRADICIONAL",
+    "territorial": "SUR"
+  },
+  {
+    "codigoSucursal": 243,
+    "sucursal": "PUERTO MONTT COSTANERA",
+    "modelo": "TRADICIONAL",
+    "territorial": "SUR"
+  },
+  {
+    "codigoSucursal": 244,
+    "sucursal": "PUERTO MONTT P. IBANEZ",
+    "modelo": "TRADICIONAL",
+    "territorial": "SUR"
+  },
+  {
+    "codigoSucursal": 245,
+    "sucursal": "SELECT PUERTO MONTT COSTANERA",
+    "modelo": "SELECT",
+    "territorial": "SUR"
+  },
+  {
+    "codigoSucursal": 246,
+    "sucursal": "PUERTO AYSEN",
+    "modelo": "TRADICIONAL",
+    "territorial": "SUR"
+  },
+  {
+    "codigoSucursal": 247,
+    "sucursal": "COYHAIQUE 21 DE MAYO",
+    "modelo": "TRADICIONAL",
+    "territorial": "SUR"
+  },
+  {
+    "codigoSucursal": 248,
+    "sucursal": "PUNTA ARENAS",
+    "modelo": "TRADICIONAL",
+    "territorial": "SUR"
+  },
+  {
+    "codigoSucursal": 249,
+    "sucursal": "HUERFANOS",
+    "modelo": "WORK CAFE",
+    "territorial": "BARRIO CIVICO"
+  },
+  {
+    "codigoSucursal": 250,
+    "sucursal": "PRINCIPAL",
+    "modelo": "TRADICIONAL",
+    "territorial": "BARRIO CIVICO"
+  },
+  {
+    "codigoSucursal": 252,
+    "sucursal": "NUEVA ESTORIL",
+    "modelo": "WORK CAFE",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 253,
+    "sucursal": "LORETO",
+    "modelo": "WORK CAFE",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 257,
+    "sucursal": "CAJA AUX. MEJILLONES",
+    "modelo": "CAJA AUXILIAR",
+    "territorial": "NORTE"
+  },
+  {
+    "codigoSucursal": 262,
+    "sucursal": "VOX (CONTACT CENTER)",
+    "modelo": "VOX",
+    "territorial": "CANALES"
+  },
+  {
+    "codigoSucursal": 263,
+    "sucursal": "BANCA UNICA",
+    "modelo": "CONTABLE",
+    "territorial": "BARRIO CIVICO"
+  },
+  {
+    "codigoSucursal": 264,
+    "sucursal": "PARQUE ARAUCANO",
+    "modelo": "WORK CAFE",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 266,
+    "sucursal": "WORLD TRADE CENTER",
+    "modelo": "TRADICIONAL",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 268,
+    "sucursal": "AEROPUERTO",
+    "modelo": "TRADICIONAL",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 269,
+    "sucursal": "SAN PEDRO",
+    "modelo": "TRADICIONAL",
+    "territorial": "CENTRO"
+  },
+  {
+    "codigoSucursal": 270,
+    "sucursal": "PUCON",
+    "modelo": "TRADICIONAL",
+    "territorial": "SUR"
+  },
+  {
+    "codigoSucursal": 271,
+    "sucursal": "IQUIQUE ZOFRI",
+    "modelo": "TRADICIONAL",
+    "territorial": "NORTE"
+  },
+  {
+    "codigoSucursal": 273,
+    "sucursal": "REÑACA",
+    "modelo": "TRADICIONAL",
+    "territorial": "QUINTA"
+  },
+  {
+    "codigoSucursal": 274,
+    "sucursal": "PEÑAFLOR",
+    "modelo": "TRADICIONAL",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 281,
+    "sucursal": "VIÑA LIBERTAD",
+    "modelo": "WORK CAFE",
+    "territorial": "QUINTA"
+  },
+  {
+    "codigoSucursal": 282,
+    "sucursal": "SAN FERNANDO",
+    "modelo": "WORK CAFE",
+    "territorial": "CENTRO"
+  },
+  {
+    "codigoSucursal": 283,
+    "sucursal": "OVALLE",
+    "modelo": "TRADICIONAL",
+    "territorial": "NORTE"
+  },
+  {
+    "codigoSucursal": 284,
+    "sucursal": "CALAMA SOTOMAYOR",
+    "modelo": "TRADICIONAL",
+    "territorial": "NORTE"
+  },
+  {
+    "codigoSucursal": 285,
+    "sucursal": "CURICO PLAZA",
+    "modelo": "WORK CAFE",
+    "territorial": "CENTRO"
+  },
+  {
+    "codigoSucursal": 288,
+    "sucursal": "TALCA",
+    "modelo": "WORK CAFE",
+    "territorial": "CENTRO"
+  },
+  {
+    "codigoSucursal": 291,
+    "sucursal": "LINARES PLAZA",
+    "modelo": "TRADICIONAL",
+    "territorial": "CENTRO"
+  },
+  {
+    "codigoSucursal": 293,
+    "sucursal": "AVDA. LARRAIN",
+    "modelo": "TRADICIONAL",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 294,
+    "sucursal": "CHILLAN PLAZA",
+    "modelo": "TRADICIONAL",
+    "territorial": "CENTRO"
+  },
+  {
+    "codigoSucursal": 296,
+    "sucursal": "PUENTE ALTO",
+    "modelo": "TRADICIONAL",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 297,
+    "sucursal": "CONCEPCION CATEDRAL",
+    "modelo": "TRADICIONAL",
+    "territorial": "CENTRO"
+  },
+  {
+    "codigoSucursal": 299,
+    "sucursal": "LOS CASTAÑOS",
+    "modelo": "TRADICIONAL",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 300,
+    "sucursal": "CASA MATRIZ",
+    "modelo": "TRADICIONAL",
+    "territorial": "BARRIO CIVICO"
+  },
+  {
+    "codigoSucursal": 303,
+    "sucursal": "LA CALERA",
+    "modelo": "TRADICIONAL",
+    "territorial": "QUINTA"
+  },
+  {
+    "codigoSucursal": 304,
+    "sucursal": "LA LIGUA",
+    "modelo": "TRADICIONAL",
+    "territorial": "QUINTA"
+  },
+  {
+    "codigoSucursal": 305,
+    "sucursal": "CON-CON",
+    "modelo": "TRADICIONAL",
+    "territorial": "QUINTA"
+  },
+  {
+    "codigoSucursal": 311,
+    "sucursal": "AMUNATEGUI",
+    "modelo": "WORK CAFE",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 312,
+    "sucursal": "ALTOS DE LA FLORIDA",
+    "modelo": "TRADICIONAL",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 313,
+    "sucursal": "STGO DOWN TOWN",
+    "modelo": "NMS",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 314,
+    "sucursal": "PARQUE ARAUCO",
+    "modelo": "TRADICIONAL",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 315,
+    "sucursal": "PLAZA TOBALABA",
+    "modelo": "TRADICIONAL",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 316,
+    "sucursal": "INDEPENDENCIA",
+    "modelo": "TRADICIONAL",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 319,
+    "sucursal": "AMERICO VESPUCIO",
+    "modelo": "TRADICIONAL",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 320,
+    "sucursal": "FLORIDA CENTER",
+    "modelo": "TRADICIONAL",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 321,
+    "sucursal": "ÑUBLE",
+    "modelo": "TRADICIONAL",
+    "territorial": "BARRIO CIVICO"
+  },
+  {
+    "codigoSucursal": 323,
+    "sucursal": "ALTO PENALOLEN",
+    "modelo": "TRADICIONAL",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 324,
+    "sucursal": "MUT",
+    "modelo": "WORK CAFE",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 325,
+    "sucursal": "IQUIQUE",
+    "modelo": "WORK CAFE",
+    "territorial": "NORTE"
+  },
+  {
+    "codigoSucursal": 326,
+    "sucursal": "PUERTO VALPARAISO",
+    "modelo": "WORK CAFE",
+    "territorial": "QUINTA"
+  },
+  {
+    "codigoSucursal": 334,
+    "sucursal": "PATRONATO",
+    "modelo": "TRADICIONAL",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 337,
+    "sucursal": "AHUMADA PERSONAS V",
+    "modelo": "CONTABLE",
+    "territorial": "BARRIO CIVICO"
+  },
+  {
+    "codigoSucursal": 338,
+    "sucursal": "AHUMADA BBPP II",
+    "modelo": "CONTABLE",
+    "territorial": "BARRIO CIVICO"
+  },
+  {
+    "codigoSucursal": 339,
+    "sucursal": "AHUMADA I",
+    "modelo": "CONTABLE",
+    "territorial": "BARRIO CIVICO"
+  },
+  {
+    "codigoSucursal": 342,
+    "sucursal": "RAPA NUI",
+    "modelo": "TRADICIONAL",
+    "territorial": "RAPA NUI"
+  },
+  {
+    "codigoSucursal": 343,
+    "sucursal": "TEMUCO PLAZA BBPP",
+    "modelo": "TRADICIONAL",
+    "territorial": "SUR"
+  },
+  {
+    "codigoSucursal": 346,
+    "sucursal": "VOX (CEC )",
+    "modelo": "VOX",
+    "territorial": "CANALES"
+  },
+  {
+    "codigoSucursal": 350,
+    "sucursal": "SAN VICENTE TAGUA TAGUA",
+    "modelo": "TRADICIONAL",
+    "territorial": "CENTRO"
+  },
+  {
+    "codigoSucursal": 351,
+    "sucursal": "AHUMADA BBPP VI",
+    "modelo": "CONTABLE",
+    "territorial": "BARRIO CIVICO"
+  },
+  {
+    "codigoSucursal": 356,
+    "sucursal": "RENGO",
+    "modelo": "TRADICIONAL",
+    "territorial": "CENTRO"
+  },
+  {
+    "codigoSucursal": 358,
+    "sucursal": "AHUMADA BBPP IV",
+    "modelo": "CONTABLE",
+    "territorial": "BARRIO CIVICO"
+  },
+  {
+    "codigoSucursal": 359,
+    "sucursal": "MALL DEL MAULE",
+    "modelo": "TRADICIONAL",
+    "territorial": "CENTRO"
+  },
+  {
+    "codigoSucursal": 362,
+    "sucursal": "RIO BUENO",
+    "modelo": "TRADICIONAL",
+    "territorial": "SUR"
+  },
+  {
+    "codigoSucursal": 363,
+    "sucursal": "PURRANQUE",
+    "modelo": "TRADICIONAL",
+    "territorial": "SUR"
+  },
+  {
+    "codigoSucursal": 364,
+    "sucursal": "FRUTILLAR",
+    "modelo": "TRADICIONAL",
+    "territorial": "SUR"
+  },
+  {
+    "codigoSucursal": 365,
+    "sucursal": "LLANQUIHUE",
+    "modelo": "TRADICIONAL",
+    "territorial": "SUR"
+  },
+  {
+    "codigoSucursal": 366,
+    "sucursal": "PUERTO VARAS",
+    "modelo": "WORK CAFE",
+    "territorial": "SUR"
+  },
+  {
+    "codigoSucursal": 367,
+    "sucursal": "PANGUIPULLI",
+    "modelo": "TRADICIONAL",
+    "territorial": "SUR"
+  },
+  {
+    "codigoSucursal": 368,
+    "sucursal": "MACHALI",
+    "modelo": "WORK CAFE",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 369,
+    "sucursal": "PRINCIPAL IV",
+    "modelo": "CONTABLE",
+    "territorial": "BARRIO CIVICO"
+  },
+  {
+    "codigoSucursal": 370,
+    "sucursal": "BUIN",
+    "modelo": "TRADICIONAL",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 371,
+    "sucursal": "MELIPILLA",
+    "modelo": "TRADICIONAL",
+    "territorial": "QUINTA"
+  },
+  {
+    "codigoSucursal": 372,
+    "sucursal": "TALAGANTE",
+    "modelo": "TRADICIONAL",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 376,
+    "sucursal": "LAJA",
+    "modelo": "TRADICIONAL",
+    "territorial": "CENTRO"
+  },
+  {
+    "codigoSucursal": 377,
+    "sucursal": "CAJA AUX. U. DEL DESARROLLO CONCEPCION",
+    "modelo": "CAJA AUXILIAR",
+    "territorial": "CENTRO"
+  },
+  {
+    "codigoSucursal": 379,
+    "sucursal": "CAJA AUX. U. DE LOS ANDES",
+    "modelo": "CAJA AUXILIAR",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 381,
+    "sucursal": "CAJA AUX. U. TEC. FEDERICO SANTA MARIA",
+    "modelo": "CAJA AUXILIAR",
+    "territorial": "QUINTA"
+  },
+  {
+    "codigoSucursal": 385,
+    "sucursal": "NUEVA APOQUINDO",
+    "modelo": "WORK CAFE",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 386,
+    "sucursal": "MORANDE",
+    "modelo": "WORK CAFE",
+    "territorial": "BARRIO CIVICO"
+  },
+  {
+    "codigoSucursal": 388,
+    "sucursal": "VALLENAR",
+    "modelo": "TRADICIONAL",
+    "territorial": "NORTE"
+  },
+  {
+    "codigoSucursal": 389,
+    "sucursal": "SAN PEDRO DEL VALLE",
+    "modelo": "TRADICIONAL",
+    "territorial": "CENTRO"
+  },
+  {
+    "codigoSucursal": 390,
+    "sucursal": "CORONEL",
+    "modelo": "TRADICIONAL",
+    "territorial": "CENTRO"
+  },
+  {
+    "codigoSucursal": 395,
+    "sucursal": "CASABLANCA",
+    "modelo": "TRADICIONAL",
+    "territorial": "QUINTA"
+  },
+  {
+    "codigoSucursal": 396,
+    "sucursal": "LIMACHE",
+    "modelo": "TRADICIONAL",
+    "territorial": "QUINTA"
+  },
+  {
+    "codigoSucursal": 397,
+    "sucursal": "VILLA ALEMANA",
+    "modelo": "TRADICIONAL",
+    "territorial": "QUINTA"
+  },
+  {
+    "codigoSucursal": 399,
+    "sucursal": "CASA MATRIZ II",
+    "modelo": "CONTABLE",
+    "territorial": "BARRIO CIVICO"
+  },
+  {
+    "codigoSucursal": 400,
+    "sucursal": "TITANIUM",
+    "modelo": "WORK CAFE",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 401,
+    "sucursal": "AGUSTINAS",
+    "modelo": "TRADICIONAL",
+    "territorial": "BARRIO CIVICO"
+  },
+  {
+    "codigoSucursal": 402,
+    "sucursal": "PASEO ORREGO LUCO",
+    "modelo": "TRADICIONAL",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 403,
+    "sucursal": "APOQUINDO",
+    "modelo": "TRADICIONAL",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 408,
+    "sucursal": "AGUSTINAS SELECT",
+    "modelo": "CONTABLE",
+    "territorial": "BARRIO CIVICO"
+  },
+  {
+    "codigoSucursal": 411,
+    "sucursal": "WORK CAFE EXPRESSO VILLANELO",
+    "modelo": "WORK CAFE",
+    "territorial": "QUINTA"
+  },
+  {
+    "codigoSucursal": 411,
+    "sucursal": "WORK CAFE EXPRESSO VILLANELO",
+    "modelo": "WORK CAFE",
+    "territorial": "QUINTA"
+  },
+  {
+    "codigoSucursal": 415,
+    "sucursal": "GERTRUDIS ECHENIQUE",
+    "modelo": "WORK CAFE",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 419,
+    "sucursal": "BOMBERO OSSA",
+    "modelo": "WORK CAFE",
+    "territorial": "BARRIO CIVICO"
+  },
+  {
+    "codigoSucursal": 422,
+    "sucursal": "BASE NAVAL",
+    "modelo": "TRADICIONAL",
+    "territorial": "CENTRO"
+  },
+  {
+    "codigoSucursal": 424,
+    "sucursal": "CAJA AUX. USACH",
+    "modelo": "CAJA AUXILIAR",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 426,
+    "sucursal": "CAJA AUX. U. DE VALPO. PLAYA ANCHA",
+    "modelo": "CAJA AUXILIAR",
+    "territorial": "QUINTA"
+  },
+  {
+    "codigoSucursal": 429,
+    "sucursal": "WORK CAFE EXPRESSO CENTRO",
+    "modelo": "WORK CAFE",
+    "territorial": "BARRIO CIVICO"
+  },
+  {
+    "codigoSucursal": 429,
+    "sucursal": "WORK CAFE EXPRESSO CENTRO",
+    "modelo": "WORK CAFE",
+    "territorial": "BARRIO CIVICO"
+  },
+  {
+    "codigoSucursal": 431,
+    "sucursal": "PUERTO NATALES",
+    "modelo": "WORK CAFE",
+    "territorial": "SUR"
+  },
+  {
+    "codigoSucursal": 432,
+    "sucursal": "TEMUCO AVENIDA ALEMANIA",
+    "modelo": "WORK CAFE",
+    "territorial": "SUR"
+  },
+  {
+    "codigoSucursal": 436,
+    "sucursal": "LA SERENA MALL",
+    "modelo": "WORK CAFE",
+    "territorial": "NORTE"
+  },
+  {
+    "codigoSucursal": 437,
+    "sucursal": "NUEVA PEDRO DE VALDIVIA",
+    "modelo": "WORK CAFE",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 439,
+    "sucursal": "PORTUGAL",
+    "modelo": "TRADICIONAL",
+    "territorial": "BARRIO CIVICO"
+  },
+  {
+    "codigoSucursal": 442,
+    "sucursal": "LA BOLSA",
+    "modelo": "TRADICIONAL",
+    "territorial": "BARRIO CIVICO"
+  },
+  {
+    "codigoSucursal": 443,
+    "sucursal": "CAUQUENES",
+    "modelo": "TRADICIONAL",
+    "territorial": "CENTRO"
+  },
+  {
+    "codigoSucursal": 446,
+    "sucursal": "SAN CARLOS",
+    "modelo": "TRADICIONAL",
+    "territorial": "CENTRO"
+  },
+  {
+    "codigoSucursal": 447,
+    "sucursal": "SAN JAVIER",
+    "modelo": "TRADICIONAL",
+    "territorial": "CENTRO"
+  },
+  {
+    "codigoSucursal": 451,
+    "sucursal": "LAUTARO",
+    "modelo": "TRADICIONAL",
+    "territorial": "SUR"
+  },
+  {
+    "codigoSucursal": 452,
+    "sucursal": "PLACILLA",
+    "modelo": "TRADICIONAL",
+    "territorial": "QUINTA"
+  },
+  {
+    "codigoSucursal": 453,
+    "sucursal": "LA SERENA CERRO GRANDE",
+    "modelo": "TRADICIONAL",
+    "territorial": "NORTE"
+  },
+  {
+    "codigoSucursal": 454,
+    "sucursal": "PARRAL",
+    "modelo": "TRADICIONAL",
+    "territorial": "CENTRO"
+  },
+  {
+    "codigoSucursal": 456,
+    "sucursal": "CONSTITUCION",
+    "modelo": "TRADICIONAL",
+    "territorial": "CENTRO"
+  },
+  {
+    "codigoSucursal": 474,
+    "sucursal": "LAS RASTRAS",
+    "modelo": "WORK CAFE",
+    "territorial": "CENTRO"
+  },
+  {
+    "codigoSucursal": 476,
+    "sucursal": "WORK CAFE EXPRESSO EL BOSQUE",
+    "modelo": "WORK CAFE",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 483,
+    "sucursal": "HOSPITAL NAVAL",
+    "modelo": "WORK CAFE",
+    "territorial": "QUINTA"
+  },
+  {
+    "codigoSucursal": 492,
+    "sucursal": "NUEVA COSTANERA",
+    "modelo": "WORK CAFE",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 494,
+    "sucursal": "PARQUE ANGAMOS",
+    "modelo": "WORK CAFE",
+    "territorial": "NORTE"
+  },
+  {
+    "codigoSucursal": 495,
+    "sucursal": "BANCA PRIVADA ISIDORA",
+    "modelo": "BANCA PRIVADA",
+    "territorial": "BANCA PRIVADA"
+  },
+  {
+    "codigoSucursal": 516,
+    "sucursal": "ESCUELA MILITAR",
+    "modelo": "WORK CAFE",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 550,
+    "sucursal": "BANCA PRIVADA TITANIUM",
+    "modelo": "BANCA PRIVADA",
+    "territorial": "BANCA PRIVADA"
+  },
+  {
+    "codigoSucursal": 560,
+    "sucursal": "CENTRO EMPRESAS SANTIAGO SUR",
+    "modelo": "CENTRO EMPRESAS",
+    "territorial": "BARRIO CIVICO"
+  },
+  {
+    "codigoSucursal": 561,
+    "sucursal": "CENTRO EMPRESAS ANTOFAGASTA",
+    "modelo": "CENTRO EMPRESAS",
+    "territorial": "NORTE"
+  },
+  {
+    "codigoSucursal": 562,
+    "sucursal": "CENTRO EMPRESAS SANTIAGO ORIENTE",
+    "modelo": "CENTRO EMPRESAS",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 563,
+    "sucursal": "CENTRO EMPRESAS VALPARAISO",
+    "modelo": "CENTRO EMPRESAS",
+    "territorial": "QUINTA"
+  },
+  {
+    "codigoSucursal": 564,
+    "sucursal": "CENTRO EMPRESAS TEMUCO",
+    "modelo": "CENTRO EMPRESAS",
+    "territorial": "SUR"
+  },
+  {
+    "codigoSucursal": 565,
+    "sucursal": "CENTRO EMPRESAS CONCEPCION",
+    "modelo": "CENTRO EMPRESAS",
+    "territorial": "CENTRO"
+  },
+  {
+    "codigoSucursal": 566,
+    "sucursal": "NUCLEO EMPRESAS CURICO",
+    "modelo": "NUCLEO EMPRESA",
+    "territorial": "CENTRO"
+  },
+  {
+    "codigoSucursal": 567,
+    "sucursal": "CENTRO EMPRESAS VIÑA DEL MAR",
+    "modelo": "CENTRO EMPRESAS",
+    "territorial": "QUINTA"
+  },
+  {
+    "codigoSucursal": 568,
+    "sucursal": "CENTRO EMPRESAS PUERTO MONTT",
+    "modelo": "CENTRO EMPRESAS",
+    "territorial": "SUR"
+  },
+  {
+    "codigoSucursal": 569,
+    "sucursal": "CENTRO EMPRESAS IQUIQUE",
+    "modelo": "CENTRO EMPRESAS",
+    "territorial": "NORTE"
+  },
+  {
+    "codigoSucursal": 570,
+    "sucursal": "NUCLEO EMPRESAS TALCA",
+    "modelo": "NUCLEO EMPRESA",
+    "territorial": "CENTRO"
+  },
+  {
+    "codigoSucursal": 571,
+    "sucursal": "NUCLEO EMPRESAS OSORNO PLAZA",
+    "modelo": "NUCLEO EMPRESA",
+    "territorial": "SUR"
+  },
+  {
+    "codigoSucursal": 572,
+    "sucursal": "NUCLEO EMPRESAS RANCAGUA",
+    "modelo": "NUCLEO EMPRESA",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 573,
+    "sucursal": "NUCLEO EMPRESA PUNTA ARENAS",
+    "modelo": "NUCLEO EMPRESA",
+    "territorial": "SUR"
+  },
+  {
+    "codigoSucursal": 574,
+    "sucursal": "NUCLEO EMPRESA LA SERENA BALMACEDA",
+    "modelo": "NUCLEO EMPRESA",
+    "territorial": "NORTE"
+  },
+  {
+    "codigoSucursal": 575,
+    "sucursal": "NUCLEO EMPRESA LOS ANGELES",
+    "modelo": "NUCLEO EMPRESA",
+    "territorial": "CENTRO"
+  },
+  {
+    "codigoSucursal": 603,
+    "sucursal": "PRESIDENTE RIESCO",
+    "modelo": "WORK CAFE",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 604,
+    "sucursal": "EL PARQUE",
+    "modelo": "WORK CAFE",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 606,
+    "sucursal": "CHILLAN PASEO ARAUCO",
+    "modelo": "WORK CAFE",
+    "territorial": "CENTRO"
+  },
+  {
+    "codigoSucursal": 607,
+    "sucursal": "MALL PLAZA ARICA",
+    "modelo": "WORK CAFE",
+    "territorial": "NORTE"
+  },
+  {
+    "codigoSucursal": 608,
+    "sucursal": "MAGALLANES",
+    "modelo": "WORK CAFE",
+    "territorial": "SUR"
+  },
+  {
+    "codigoSucursal": 610,
+    "sucursal": "DUBLE ALMEYDA",
+    "modelo": "WORK CAFE",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 611,
+    "sucursal": "AVENIDA OSSA",
+    "modelo": "NMS",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 613,
+    "sucursal": "PLAZA SUR",
+    "modelo": "WORK CAFE",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 615,
+    "sucursal": "VIÑA JARDIN",
+    "modelo": "WORK CAFE",
+    "territorial": "QUINTA"
+  },
+  {
+    "codigoSucursal": 618,
+    "sucursal": "BARRIO INDEPENDENCIA",
+    "modelo": "NMS",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 619,
+    "sucursal": "SANCHEZ FONTECILLA",
+    "modelo": "NMS",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 621,
+    "sucursal": "SELECT INVERSIONES BANDERA",
+    "modelo": "HUB SELECT",
+    "territorial": "BARRIO CIVICO"
+  },
+  {
+    "codigoSucursal": 622,
+    "sucursal": "NUEVA MAIPU",
+    "modelo": "NMS",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 630,
+    "sucursal": "PASEO BUIN",
+    "modelo": "NMS",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 649,
+    "sucursal": "TALCAHUANO BRISAS DEL SOL",
+    "modelo": "NMS",
+    "territorial": "CENTRO"
+  },
+  {
+    "codigoSucursal": 651,
+    "sucursal": "LA CAPITANIA",
+    "modelo": "NMS",
+    "territorial": "ORIENTE"
+  },
+  {
+    "codigoSucursal": 697,
+    "sucursal": "AEROPUERTO INTERNACIONAL",
+    "modelo": "WORK CAFE",
+    "territorial": "PONIENTE"
+  },
+  {
+    "codigoSucursal": 996,
+    "sucursal": "CIC",
+    "modelo": "CONTABLE",
+    "territorial": "CANALES"
+  }
+]
