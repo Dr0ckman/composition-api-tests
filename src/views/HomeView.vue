@@ -3,20 +3,9 @@
     <h1 class="text-primary mb-3">Interacciones</h1>
 
     <hr>
-    <div class="btn-group dropend">
-      <button type="button" class="btn btn-primary dropdown-toggle d-block mb-3" data-bs-toggle="dropdown">
-        Nombre
-      </button>
-      <ul class="dropdown-menu">
-        <li><button class="dropdown-item" type="button" @click="handleDropDown">David Chavez</button></li>
-        <li><button class="dropdown-item" type="button" @click="handleDropDown">Sebastián Parra</button></li>
-        <li><button class="dropdown-item" type="button" @click="handleDropDown">Jeanpierre Peña</button></li>
-        <li><button class="dropdown-item" type="button" @click="handleDropDown">Gianfranco Samarotto</button></li>
-        <li><button class="dropdown-item" type="button" @click="handleDropDown">Christopher Santana</button></li>
-        <li><button class="dropdown-item" type="button" @click="handleDropDown">Miguel Angel Amaya</button></li>
-        <li><button class="dropdown-item" type="button" @click="handleDropDown">Sebastian Quezada</button></li>
-      </ul>
-    </div>
+
+    <Dropdown :dropdownOptions="userOptions">{{ selectedName }}</Dropdown>
+
     <div>
       <input type="file" id="fileInput" accept=".json" style="display: none;">
       <button class="btn btn-secondary" onclick="document.getElementById('fileInput').click();">Importar JSON</button>
@@ -52,46 +41,94 @@
           </tr>
         </thead>
         <tbody>
-          <!-- <tr v-for="el in jsonData">
-            <td v-for="element in el" :key="element.id">
-              {{ element }}
-            </td>
-          </tr> -->
-          <tr v-for="(item, index) in dataRows">
+          <tr v-for="item in dataRows" :key="item.id">
             <td>
-              <a href="#" class="me-n2" v-if="index === dataRows.length - 1"><font-awesome-icon icon="plus" /></a>
-              <a href="#" class="ms-4"><font-awesome-icon icon="minus" /></a>
+              <a @click="addRow" class="me-n2" v-if="item.id === dataRows.length - 1"><font-awesome-icon
+                  icon="plus" /></a>
+              <a @click="deleteRow(item.id, 1)" class="ms-4"><font-awesome-icon icon="minus" /></a>
               <a href="#" class="ms-2"><font-awesome-icon icon="pen-square" /></a>
             </td>
-            <td>{{ index }}</td>
-            <td contenteditable=""></td>
-            <td contenteditable=""></td>
-            <td contenteditable=""></td>
-            <td class="bg-warning-subtle"></td>
-            <td contenteditable=""></td>
-            <td contenteditable=""></td>
-            <td contenteditable=""></td>
-            <td contenteditable=""></td>
-            <td contenteditable=""></td>
-            <td contenteditable=""></td>
-            <td contenteditable=""></td>
-            <td contenteditable=""></td>
-            <td class="bg-warning-subtle"></td>
-            <td contenteditable=""></td>
-            <td contenteditable=""></td>
-            <td class="bg-warning-subtle"></td>
-            <td class="bg-warning-subtle"></td>
-            <td contenteditable=""></td>
             <td>
-              <div class="btn-group dropend">
-                <button type="button" class="btn btn-primary dropdown-toggle d-block mb-3" data-bs-toggle="dropdown">
-                  Nombre
-                </button>
-                <ul class="dropdown-menu">
-                  <li><button class="dropdown-item" type="button" @click="handleDropDown">ADN</button></li>
-                  <li><button class="dropdown-item" type="button" @click="handleDropDown">LOCKER</button></li>
-                </ul>
-              </div>
+              <!-- ID -->
+              {{ item.id }}
+            </td>
+            <td>
+              <!-- Número incidente -->
+              <input type="text" :value="dataRows[item.id].numeroIncidente" 
+              @input="dataRows[item.id].numeroIncidente=$event.target.value">
+            </td>
+            <td>
+              <!-- Código sucursal -->
+              <input type="text" v-model="dataRows[item.id].codigoSucursal">
+            </td>
+            <td>
+              <!-- Nombre de sucursal -->
+              <input type="text" v-model="dataRows[item.id].nombreSucursal">
+
+            </td>
+            <td class="bg-warning-subtle">
+              <!-- Resumen -->
+              {{ dataRows[item.id].resumen }}
+            </td>
+            <td>
+              <!-- Abierto -->
+              <input type="text" v-model="dataRows[item.id].abierto">
+            </td>
+            <td>
+              <!-- Cerrado -->
+              <input type="text" v-model="dataRows[item.id].cerrado">
+            </td>
+            <td>
+              <!-- Tiempo -->
+              <input type="text" v-model="dataRows[item.id].tiempo">
+            </td>
+            <td>
+              <!-- Tipo -->
+              <input type="text" v-model="dataRows[item.id].tipo">
+            </td>
+            <td>
+              <!-- Categoría -->
+              <input type="text" v-model="dataRows[item.id].categoria">
+            </td>
+            <td>
+              <!-- Subcategoría -->
+              <input type="text" v-model="dataRows[item.id].subcategoria">
+            </td>
+            <td>
+              <!-- Detalle -->
+              <input type="text" v-model="dataRows[item.id].detalle">
+            </td>
+            <td>
+              <!-- Estado -->
+              <input type="text" v-model="dataRows[item.id].estado">
+            </td>
+            <td class="bg-warning-subtle">
+              <!-- Asignado a -->
+              {{ selectedName }}
+            </td>
+            <td class="bg-warning-subtle">
+              <!-- Grupo -->
+              {{ dataRows[item.id].grupo }}
+            </td>
+            <td>
+              <!-- Abierto para -->
+              <input type="text" v-model="dataRows[item.id].abiertoPara">
+            </td>
+            <td class="bg-warning-subtle">
+              <!-- Modelo -->
+              {{ dataRows[item.id].modelo }}
+            </td>
+            <td class="bg-warning-subtle">
+              <!-- Territorial -->
+              {{ dataRows[item.id].territorial }}
+            </td>
+            <td>
+              <!-- Solucion Responsable -->
+              <input type="text" v-model="dataRows[item.id].solucionResponsable">
+            </td>
+            <td>
+              <!-- Tipo de máquina -->
+              <input type="text" v-model="dataRows[item.id].tipoMaquina">
             </td>
           </tr>
         </tbody>
@@ -102,27 +139,42 @@
 </template>
 
 <script>
+import store from '../store/index'
 import rowData from '../json/data.json'
-import { ref } from 'vue'
+import Dropdown from '../components/Dropdown.vue'
+import { computed } from 'vue'
 
 export default {
   name: 'HomeView',
+  components: {
+    Dropdown
+  },
   setup() {
     const jsonData = rowData
-    let dataRows = ref(["", "", "", "", "", "", "", "", ""])
+    const dataRows = store.state.dataRows
+    const selectedName = computed(() => store.state.selectedName)
 
-    const handleDropDown = (e) => { // Maneja el botón de nombres
-      // let selectedName = e.target.innerHTML;
-      // let dropDownSelector = document.querySelector(e.target.parentElement.parentElement.previousSibling);
-      // dropDownSelector.innerHTML = selectedName;
-      console.log(e.target.parentElement.parentElement.previousSibling)
-    }
+
+    // Opciones botones desplegables
+    const userOptions = ["David Chavez", "Sebastián Quezada", "Sebastián parra", "Jeanpierre Peña", "Gianfranco Samarotto", "Christopher Santana", "Miguel Ángel Amaya"]
+    const machineOptions = ["Tipo de máquina", "ADN", "Locker"]
+    const responsibleOptions = ["Solución Responsable", "Mesa de autoservicio", "Terreno"]
 
     const addRow = () => {
-      dataRows.push("")
+      store.commit('addRow')
     }
 
-    return { handleDropDown, jsonData, dataRows }
+    const deleteRow = (index) => {
+      console.log(index)
+      store.commit('deleteRow', index)
+      
+    }
+
+    return {
+      jsonData, dataRows, userOptions,
+      machineOptions, addRow, deleteRow, responsibleOptions,
+      selectedName
+    }
   }
 }
 </script>
@@ -144,4 +196,9 @@ table {
 
 #formFileSm {
   width: 20rem;
-}</style>
+}
+
+input {
+  width: 100%;
+}
+</style>

@@ -1,6 +1,8 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
+import store from './store'
+
 import "bootstrap/dist/css/bootstrap.min.css"
 import "bootstrap"
 /* import the fontawesome core */
@@ -19,5 +21,6 @@ library.add(faPlus, faMinus, faPenSquare)
 
 createApp(App)
     .use(router)
+    .use(store)
     .component('font-awesome-icon', FontAwesomeIcon)
     .mount('#app')
