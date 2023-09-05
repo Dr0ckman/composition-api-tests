@@ -13,7 +13,7 @@
 
     <hr>
 
-    <div class="table-responsive">
+    <div>
       <table class="table table-striped">
         <thead>
           <tr>
@@ -41,66 +41,66 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="item in dataRows" :key="item.id">
+          <tr v-for="(item, index) in dataRows">
             <td>
-              <a @click="addRow" class="me-n2" v-if="item.id === dataRows.length - 1"><font-awesome-icon
-                  icon="plus" /></a>
-              <a @click="deleteRow(item.id, 1)" class="ms-4"><font-awesome-icon icon="minus" /></a>
+              <a @click="addRow" class="me-n2" v-if="index === dataRows.length - 1"><font-awesome-icon icon="plus" /></a>
+              <a @click="deleteRow(index, 1)" class="ms-4"><font-awesome-icon icon="minus" /></a>
               <a href="#" class="ms-2"><font-awesome-icon icon="pen-square" /></a>
             </td>
             <td>
               <!-- ID -->
-              {{ item.id }}
+              {{ index }}
             </td>
             <td>
               <!-- Número incidente -->
-              <input type="text" :value="dataRows[item.id].numeroIncidente" 
-              @input="dataRows[item.id].numeroIncidente=$event.target.value">
+              <input type="text" @input="dataRows[index].numeroIncidente = $event.target.value"
+                placeholder="Número incidente">
             </td>
             <td>
               <!-- Código sucursal -->
-              <input type="text" v-model="dataRows[item.id].codigoSucursal">
+              <input type="text" @input="dataRows[index].codigoSucursal = $event.target.value"
+                placeholder="Código Sucursal">
             </td>
             <td>
               <!-- Nombre de sucursal -->
-              <input type="text" v-model="dataRows[item.id].nombreSucursal">
-
+              <input type="text" @input="dataRows[index].nombreSucursal = $event.target.value"
+                placeholder="Nombre Sucursal">
             </td>
             <td class="bg-warning-subtle">
               <!-- Resumen -->
-              {{ dataRows[item.id].resumen }}
+              {{ dataRows[index].resumen }}
             </td>
             <td>
               <!-- Abierto -->
-              <input type="text" v-model="dataRows[item.id].abierto">
+              <input type="text" @input="dataRows[index].abierto = $event.target.value" placeholder="Abierto">
             </td>
             <td>
               <!-- Cerrado -->
-              <input type="text" v-model="dataRows[item.id].cerrado">
+              <input type="text" @input="dataRows[index].cerrado = $event.target.value" placeholder="Cerrado">
             </td>
             <td>
               <!-- Tiempo -->
-              <input type="text" v-model="dataRows[item.id].tiempo">
+              <input type="text" @input="dataRows[index].tiempo = $event.target.value" placeholder="Tiempo">
             </td>
             <td>
               <!-- Tipo -->
-              <input type="text" v-model="dataRows[item.id].tipo">
+              <input type="text" @input="dataRows[index].tipo = $event.target.value" placeholder="Tipo">
             </td>
             <td>
               <!-- Categoría -->
-              <input type="text" v-model="dataRows[item.id].categoria">
+              <input type="text" @input="dataRows[index].categoria = $event.target.value" placeholder="Categoría">
             </td>
             <td>
               <!-- Subcategoría -->
-              <input type="text" v-model="dataRows[item.id].subcategoria">
+              <input type="text" @input="dataRows[index].subcategoria = $event.target.value" placeholder="Subcategoría">
             </td>
             <td>
               <!-- Detalle -->
-              <input type="text" v-model="dataRows[item.id].detalle">
+              <input type="text" @input="dataRows[index].detalle = $event.target.value" placeholder="Detalle">
             </td>
             <td>
               <!-- Estado -->
-              <input type="text" v-model="dataRows[item.id].estado">
+              <input type="text" @input="dataRows[index].estado = $event.target.value" placeholder="Estado">
             </td>
             <td class="bg-warning-subtle">
               <!-- Asignado a -->
@@ -108,27 +108,28 @@
             </td>
             <td class="bg-warning-subtle">
               <!-- Grupo -->
-              {{ dataRows[item.id].grupo }}
+              {{ dataRows[index].grupo }}
             </td>
             <td>
               <!-- Abierto para -->
-              <input type="text" v-model="dataRows[item.id].abiertoPara">
+              <input type="text" @input="dataRows[index].abiertoPara = $event.target.value" placeholder="Abierto para">
             </td>
             <td class="bg-warning-subtle">
               <!-- Modelo -->
-              {{ dataRows[item.id].modelo }}
+              {{ dataRows[index].modelo }}
             </td>
             <td class="bg-warning-subtle">
               <!-- Territorial -->
-              {{ dataRows[item.id].territorial }}
+              {{ dataRows[index].territorial }}
             </td>
             <td>
               <!-- Solucion Responsable -->
-              <input type="text" v-model="dataRows[item.id].solucionResponsable">
+              <input type="text" @input="dataRows[index].solucionResponsable = $event.target.value"
+                placeholder="Solución responsable">
             </td>
             <td>
               <!-- Tipo de máquina -->
-              <input type="text" v-model="dataRows[item.id].tipoMaquina">
+              <input type="text" @input="dataRows[index].tipoMaquina = $event.target.value" placeholder="Tipo de máquina">
             </td>
           </tr>
         </tbody>
@@ -139,9 +140,16 @@
 </template>
 
 <script>
-import store from '../store/index'
+
+// JSON
 import rowData from '../json/data.json'
+import sucursales from '../json/data.json'
+
+// Componentes
+import store from '../store/index'
 import Dropdown from '../components/Dropdown.vue'
+
+// VUE
 import { computed } from 'vue'
 
 export default {
@@ -165,9 +173,14 @@ export default {
     }
 
     const deleteRow = (index) => {
-      console.log(index)
-      store.commit('deleteRow', index)
-      
+      if (store.state.counter > 1) {
+        console.log(index)
+        store.commit('deleteRow', index)
+      }
+      else {
+        // pass
+      }
+
     }
 
     return {
@@ -181,6 +194,8 @@ export default {
 
 <style scoped lang="scss">
 table {
+  // min-height: 100vh;
+
   thead {
     tr {
       th {
