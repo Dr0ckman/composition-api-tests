@@ -1,4 +1,5 @@
 import { createStore } from 'vuex'
+import sucursales from '@/json/sucursales.json'
 
 export default createStore({
     state: {
@@ -6,28 +7,30 @@ export default createStore({
         dataRows: [
             {
                 "id": 0,
-                "numeroIncidente": "Número incidente",
-                "codigoSucursal": 0,
-                "nombreSucursal": "Nombre sucursal",
-                "resumen": "Resumen",
-                "abierto": "Abierto",
-                "cerrado": "Cerrado",
-                "tiempo": "Tiempo",
-                "tipo": "Tipo",
-                "categoria": "Categoría",
-                "subcategoria": "Subcategoría",
-                "detalle": "Detalle",
-                "estado": "Estado",
-                "asignadoA": "Asignado a",
+                "numeroIncidente": "",
+                "codigoSucursal": "",
+                "nombreSucursal": "",
+                "resumen": "",
+                "abierto": "",
+                "cerrado": "",
+                "tiempo": "",
+                "tipo": "",
+                "categoria": "",
+                "subcategoria": "",
+                "detalle": "",
+                "estado": "",
+                "asignadoA": "",
                 "grupo": "CHL_EU_EU_AUTO-SERVICIO",
-                "abiertoPara": "Abierto para",
-                "modelo": "Modelo",
-                "territorial": "Territorial",
-                "solucionResponsable": "Solución responsable",
-                "tipoMaquina": "Tipo de máquina"
+                "abiertoPara": "",
+                "modelo": "",
+                "territorial": "",
+                "solucionResponsable": "",
+                "tipoMaquina": ""
             }
         ],
-        counter: 1
+        searchResult: [],
+        sucursales: sucursales,
+        counter: 1,
     },
     getters: {
     },
@@ -36,25 +39,25 @@ export default createStore({
             state.dataRows.push(
                 {
                     "id": state.counter,
-                    "numeroIncidente": "Número incidente",
+                    "numeroIncidente": "",
                     "codigoSucursal": 0,
-                    "nombreSucursal": "Nombre sucursal",
-                    "resumen": "Resumen",
-                    "abierto": "Abierto",
-                    "cerrado": "Cerrado",
-                    "tiempo": "Tiempo",
-                    "tipo": "Tipo",
-                    "categoria": "Categoría",
-                    "subcategoria": "Subcategoría",
-                    "detalle": "Detalle",
-                    "estado": "Estado",
-                    "asignadoA": "Asignado a",
+                    "nombreSucursal": "",
+                    "resumen": "",
+                    "abierto": "",
+                    "cerrado": "",
+                    "tiempo": "",
+                    "tipo": "",
+                    "categoria": "",
+                    "subcategoria": "",
+                    "detalle": "",
+                    "estado": "",
+                    "asignadoA": "",
                     "grupo": "CHL_EU_EU_AUTO-SERVICIO",
-                    "abiertoPara": "Abierto para",
-                    "modelo": "Modelo",
-                    "territorial": "Territorial",
-                    "solucionResponsable": "Solución responsable",
-                    "tipoMaquina": "Tipo de máquina"
+                    "abiertoPara": "",
+                    "modelo": "",
+                    "territorial": "",
+                    "solucionResponsable": "",
+                    "tipoMaquina": ""
                 })
             state.counter++
         },
@@ -64,6 +67,12 @@ export default createStore({
         },
         selectName(state, name) {
             state.selectedName = name
+        },
+        restartSearchResults(state) {
+            state.searchResult = []
+        },
+        addSearchResult(state, value) {
+            state.searchResult.push(value)
         }
     },
     actions: {
