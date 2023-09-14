@@ -30,6 +30,8 @@ export default createStore({
         ],
         searchResult: [],
         sucursales: sucursales,
+        subcategorias: [],
+        detalles: [],
         counter: 1,
     },
     getters: {
@@ -73,6 +75,18 @@ export default createStore({
         },
         addSearchResult(state, value) {
             state.searchResult.push(value)
+        },
+        restartSubcategorias(state) {
+            state.subcategorias = []
+        },
+        addSubcategoria(state, value) {
+            state.subcategorias.push(value)
+        },
+        restartDetalles(state) {
+            state.detalles = []
+        },
+        addDetalle(state, value) {
+            state.detalles.push(value)
         }
     },
     actions: {
