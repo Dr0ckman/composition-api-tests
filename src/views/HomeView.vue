@@ -349,6 +349,8 @@ export default {
       if (filterSucursales('codigoSucursal', Number(e.target.value))[0] !== undefined) {
         e.target.parentElement.nextElementSibling.children[0].value = filterSucursales('codigoSucursal', Number(e.target.value))[0].sucursal
         store.state.dataRows[index].nombreSucursal = filterSucursales('codigoSucursal', Number(e.target.value))[0].sucursal
+        store.state.dataRows[index].modelo = filterSucursales('codigoSucursal', Number(e.target.value))[0].modelo
+        store.state.dataRows[index].territorial = filterSucursales('codigoSucursal', Number(e.target.value))[0].territorial
       }
       generateResumen(e, index)
     }
@@ -378,7 +380,9 @@ export default {
       store.state.dataRows[index].nombreSucursal = e.target.value
       if (filterSucursales('sucursal', e.target.value)[0] !== undefined) {
         e.target.parentElement.previousElementSibling.children[0].value = filterSucursales('sucursal', e.target.value)[0].codigoSucursal
-        store.state.dataRows[index].codigoSucursal = filterSucursales('sucursal', e.target.value)[0].codigoSucursal
+        store.state.dataRows[index].codigoSucursal = filterSucursales('sucursal', String(e.target.value))[0].codigoSucursal
+        store.state.dataRows[index].modelo = filterSucursales('sucursal', String(e.target.value))[0].modelo
+        store.state.dataRows[index].territorial = filterSucursales('sucursal', String(e.target.value))[0].territorial
       }
     }
 
@@ -396,6 +400,8 @@ export default {
       if (filterSucursales('sucursal', inputElement.value)[0] !== undefined) {
         e.target.parentElement.parentElement.previousElementSibling.children[0].value = filterSucursales('sucursal', inputElement.value)[0].codigoSucursal
         store.state.dataRows[index].codigoSucursal = filterSucursales('sucursal', inputElement.value)[0].codigoSucursal
+        store.state.dataRows[index].modelo = filterSucursales('sucursal', inputElement.value)[0].modelo
+        store.state.dataRows[index].territorial = filterSucursales('sucursal', inputElement.value)[0].territorial
       }
       e.target.parentElement.classList.remove('show')
       generateResumen(e, index)
