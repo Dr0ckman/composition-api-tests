@@ -1,3 +1,5 @@
+<!-- Por hacer: Implementar Modelo y Territorial -->
+
 <template>
   <div class="container-fluid bg-dark">
     <h1 class="text-primary mb-3">Interacciones</h1>
@@ -8,10 +10,12 @@
 
     <div>
       <input type="file" id="fileInput" accept=".json" style="display: none;">
-      <button class="btn btn-secondary" onclick="document.getElementById('fileInput').click();">Importar JSON</button>
+      <button class="btn btn-secondary d-block" @click="saveJSON">Descargar JSON</button>
+      <button class="btn btn-secondary d-block mt-2" @click="saveCSV">Descargar CSV (para Excel)</button>
+
     </div>
 
-    <button class="btn btn-primary d-none">Debug</button>
+    <button class="btn btn-primary d-none" @click="restoreSession">Debug</button>
 
     <hr class="text-secondary">
 
@@ -49,24 +53,24 @@
               <a @click="deleteRow(index, 1)" class="ms-4"><font-awesome-icon icon="minus" /></a>
               <a href="#" class="ms-2"><font-awesome-icon icon="pen-square" /></a>
             </th>
-            <td>
+            <td :id="`id-${index}`">
               <!-- ID -->
               {{ index }}
             </td>
-            <td>
+            <td :id="`numero-incidente-${index}`">
               <!-- Número incidente -->
               <input type="text" class="form-control bg-secondary bg-gradient" style="--bs-bg-opacity: .8;" @input="
-                dataRows[index].numeroIncidente=$event.target.value" placeholder="Número incidente">
+                dataRows[index].numeroIncidente = $event.target.value" placeholder="Número incidente">
             </td>
-            <td>
+            <td :id="`codigo-sucursal-${index}`">
               <!-- Código sucursal -->
               <input type="text" class="form-control" @input="handleTypingCodigoSucursal($event, index)"
-                placeholder="Código sucursal">
+                :value="dataRows[index].codigoSucursal">
             </td>
-            <td>
+            <td :id="`nombre-sucursal-${index}`">
               <!-- Nombre de sucursal -->
               <input :id="`input-nombre-${index}`" type="text" class="form-control dropdown-toggle position-relative"
-                placeholder="Nombre sucursal" data-bs-toggle="collapse" :href="`#collapse-nombre-${index}`"
+                :value="dataRows[index].nombreSucursal" data-bs-toggle="collapse" :href="`#collapse-nombre-${index}`"
                 @input="handleNombreSucursal($event, index)" @click="handleClickingInput">
               <ul v-if="searchResult.length !== 0" class="list-group position-absolute z-2 collapse add-scrollbar"
                 :id="`collapse-nombre-${index}`">
@@ -76,39 +80,40 @@
                 </button>
               </ul>
             </td>
-            <td @click="generateResumen($event, index)">
+            <td :id="`resumen-${index}`" @click="generateResumen($event, index)">
               <!-- Resumen -->
               {{ dataRows[index].resumen }}
             </td>
-            <td>
+            <td :id="`abierto-${index}`">
               <!-- Abierto -->
-              <input type="text" class="form-control bg-secondary bg-gradient" @input="dataRows[index].abierto = $event.target.value"
-                placeholder="Abierto">
+              <input type="text" class="form-control bg-secondary bg-gradient"
+                @input="dataRows[index].abierto = $event.target.value" :value="dataRows[index].abierto">
             </td>
-            <td>
+            <td :id="`cerrado-${index}`">
               <!-- Cerrado -->
-              <input type="text" class="form-control bg-secondary bg-gradient" @input="dataRows[index].cerrado = $event.target.value"
-                placeholder="Cerrado">
+              <input type="text" class="form-control bg-secondary bg-gradient"
+                @input="dataRows[index].cerrado = $event.target.value" :value="dataRows[index].cerrado">
             </td>
-            <td>
+            <td :id="`tiempo-${index}`">
               <!-- Tiempo -->
-              <input type="text" class="form-control bg-secondary bg-gradient" @input="dataRows[index].tiempo = $event.target.value"
-                placeholder="Tiempo">
+              <input type="text" class="form-control bg-secondary bg-gradient"
+                @input="dataRows[index].tiempo = $event.target.value" :value="dataRows[index].tiempo">
             </td>
-            <td>
+            <td :id="`tipo-${index}`">
               <!-- Tipo -->
-              <select class="form-select" @input="dataRows[index].tipo = $event.target.value" :id="`tipo-${index}`"
-                @click="generateResumen($event, index)">
+              <select class="form-select" @input="dataRows[index].tipo = $event.target.value"
+                @click="generateResumen($event, index)" :value="dataRows[index].tipo">
                 <option selected>Tipo</option>
                 <option value="CONSULTA">CONSULTA</option>
                 <option value="SOLICITUD">SOLICITUD</option>
                 <option value="INCIDENCIA">INCIDENCIA</option>
               </select>
             </td>
-            <td>
+            <td :id="`categoria-${index}`">
               <!-- Categoría -->
               <select class="form-select" @input="dataRows[index].categoria = $event.target.value"
-                :id="`categoria-${index}`" @click="generateResumen($event, index)">
+                :id="`select-categoria-${index}`" @click="handleClickingCategory($event, index)"
+                :value="dataRows[index].categoria">
                 <option selected>Categoría</option>
                 <option value="SOFTWARE">SOFTWARE</option>
                 <option value="HARDWARE">HARDWARE</option>
@@ -118,57 +123,59 @@
                 <option value="CONSULTA/OTROS">CONSULTA/OTROS</option>
               </select>
             </td>
-            <td>
+            <td :id="`subcategoria-${index}`">
               <!-- Subcategoría -->
               <select class="form-select" @input="dataRows[index].subcategoria = $event.target.value"
-                @click="generateSubcategorias($event, index)" :id="`subcategoria-${index}`">
-                <option selected>Subcategoría</option>
-                <option :value="subcategoria" v-for="subcategoria in subcategorias">{{ subcategoria }}</option>
+                @click="handleClickingSubcategory($event, index)" :id="`select-subcategoria-${index}`">
+                <option selected>{{ dataRows[index].subcategoria }}</option>
+                <option :value="subcategoria" v-for="subcategoria in subcategorias[index]">{{ subcategoria }}
+                </option>
               </select>
             </td>
-            <td>
+            <td :id="`detalle-${index}`">
               <!-- Detalle -->
               <select class="form-select" @input="dataRows[index].detalle = $event.target.value"
-                @click="generateDetalle($event, index)" :id="`detalle-${index}`">
-                <option selected>Detalle</option>
-                <option :value="detalle" v-for="detalle in detalles">{{ detalle }}</option>
+                @click="generateResumen($event, index)" :id="`select-detalle-${index}`">
+                <option selected>{{ dataRows[index].detalle }}</option>
+                <option :value="detalle" v-for="detalle in detalles[index]">{{ detalle }}</option>
               </select>
             </td>
-            <td>
+            <td :id="`estado-${index}`">
               <!-- Estado -->
-              <input type="text" class="form-control bg-secondary bg-gradient" @input="dataRows[index].estado = $event.target.value"
-                placeholder="Estado">
+              <input type="text" class="form-control bg-secondary bg-gradient"
+                @input="dataRows[index].estado = $event.target.value" :value="dataRows[index].estado">
             </td>
-            <td>
+            <td :id="`asignado-a-${index}`">
               <!-- Asignado a -->
               {{ selectedName }}
             </td>
-            <td>
+            <td :id="`grupo-${index}`">
               <!-- Grupo -->
               {{ dataRows[index].grupo }}
             </td>
-            <td>
+            <td :id="`abierto-para-${index}`">
               <!-- Abierto para -->
-              <input type="text" class="form-control bg-secondary bg-gradient" @input="dataRows[index].abiertoPara = $event.target.value"
-                placeholder="Abierto para">
+              <input type="text" class="form-control bg-secondary bg-gradient"
+                @input="dataRows[index].abiertoPara = $event.target.value" :value="dataRows[index].abiertoPara">
             </td>
-            <td>
+            <td :id="`modelo-${index}`">
               <!-- Modelo -->
               {{ dataRows[index].modelo }}
             </td>
-            <td>
+            <td :id="`territorial-${index}`">
               <!-- Territorial -->
               {{ dataRows[index].territorial }}
             </td>
-            <td>
+            <td :id="`solucion-responsable-${index}`">
               <!-- Solucion Responsable -->
-              <input type="text" class="form-control bg-secondary bg-gradient" @input="dataRows[index].solucionResponsable = $event.target.value"
-                placeholder="Solución responsable">
+              <input type="text" class="form-control bg-secondary bg-gradient"
+                @input="dataRows[index].solucionResponsable = $event.target.value"
+                :value="dataRows[index].solucionResponsable">
             </td>
-            <td>
+            <td :id="`tipo-maquina-${index}`">
               <!-- Tipo de máquina -->
               <select class="form-select" @input="dataRows[index].tipoMaquina = $event.target.value"
-                @click="generateResumen($event, index)">
+                @click="generateResumen($event, index)" :value="dataRows[index].tipoMaquina">
                 <option selected>Tipo de máquina</option>
                 <option value="ADN">ADN</option>
                 <option value="Locker">Locker</option>
@@ -181,7 +188,7 @@
         <h3>Debug zone</h3>
         <div class="row">
           <div class="col-2 mt-2">
-            <button class="btn btn-primary" @click="generateSubcategorias">Generar subcategorias</button>
+            <button class="btn btn-primary" @click="convertJSONToCSV">Convertir JSON a CSV</button>
           </div>
         </div>
       </div>
@@ -196,7 +203,7 @@ import store from '../store/index'
 import Dropdown from '../components/Dropdown.vue'
 
 // VUE
-import { computed, ref } from 'vue'
+import { computed, ref, onMounted, nextTick, onUpdated } from 'vue'
 
 export default {
   name: 'HomeView',
@@ -219,6 +226,87 @@ export default {
 
 
     // Funciones
+
+    onMounted(() => restoreSession())
+    onUpdated(() => saveJSONToBrowserStorage())
+
+    async function restoreSession() {
+      if (localStorage.getItem('savedData') !== null) {
+        const savedData = JSON.parse(localStorage.getItem('savedData'))
+        while (store.state.dataRows.length < savedData.length) {
+          addRow()
+        }
+
+        await nextTick()
+
+        let c = 0
+        for (let element of savedData) {
+          store.state.dataRows[c].id = savedData[c].id
+          store.state.dataRows[c].numeroIncidente = savedData[c].numeroIncidente
+          store.state.dataRows[c].codigoSucursal = savedData[c].codigoSucursal
+          store.state.dataRows[c].nombreSucursal = savedData[c].nombreSucursal
+          store.state.dataRows[c].resumen = savedData[c].resumen
+          store.state.dataRows[c].abierto = savedData[c].abierto
+          store.state.dataRows[c].cerrado = savedData[c].cerrado
+          store.state.dataRows[c].tiempo = savedData[c].tiempo
+          store.state.dataRows[c].tipo = savedData[c].tipo
+          store.state.dataRows[c].categoria = savedData[c].categoria
+          store.state.dataRows[c].subcategoria = savedData[c].subcategoria
+          store.state.dataRows[c].detalle = savedData[c].detalle
+          store.state.dataRows[c].estado = savedData[c].estado
+          store.state.dataRows[c].asignadoA = savedData[c].asignadoA
+          store.state.dataRows[c].grupo = savedData[c].grupo
+          store.state.dataRows[c].abiertoPara = savedData[c].abiertoPara
+          store.state.dataRows[c].modelo = savedData[c].modelo
+          store.state.dataRows[c].territorial = savedData[c].territorial
+          store.state.dataRows[c].solucionResponsable = savedData[c].solucionResponsable
+          store.state.dataRows[c].tipoMaquina = savedData[c].tipoMaquina
+          c++
+        }
+      }
+    }
+
+    const saveJSON = () => {
+      const dataRowsJSON = JSON.stringify(store.state.dataRows)
+      const blob = new Blob([dataRowsJSON], { type: 'text/plain' })
+      const e = document.createEvent('MouseEvents'),
+        a = document.createElement('a');
+      a.download = "savedData.json";
+      a.href = window.URL.createObjectURL(blob);
+      a.dataset.downloadurl = ['text/json', a.download, a.href].join(':');
+      e.initEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+      a.dispatchEvent(e);
+    }
+
+    const saveCSV = () => {
+      const dataRowsCSV = convertJSONToCSV()
+      const blob = new Blob([dataRowsCSV], { type: 'text/plain' })
+      const e = document.createEvent('MouseEvents'),
+        a = document.createElement('a');
+      a.download = "savedData.csv";
+      a.href = window.URL.createObjectURL(blob);
+      a.dataset.downloadurl = ['text/csv', a.download, a.href].join(':');
+      e.initEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+      a.dispatchEvent(e);
+    }
+
+    const saveJSONToBrowserStorage = () => {
+      const dataRowsJSON = JSON.stringify(store.state.dataRows)
+      window.localStorage.setItem('savedData', dataRowsJSON)
+    }
+
+    const convertJSONToCSV = () => {
+      const items = store.state.dataRows
+      const replacer = (key, value) => value === null ? '' : value // specify how you want to handle null values here
+      const header = Object.keys(items[0])
+      const csv = [
+        header.join(','), // header row first
+        ...items.map(row => header.map(fieldName => JSON.stringify(row[fieldName], replacer)).join(','))
+      ].join('\r\n')
+
+      return csv
+    }
+
     const addRow = () => {
       store.commit('addRow')
     }
@@ -232,10 +320,15 @@ export default {
       }
     }
 
+    // Mientras el contador sea menor o igual 
+    // a la cantidad de elementos en dataRows, cambiar los ID.
     const updateID = () => {
       let c = 0
-      for (let element of store.state.dataRows) {
-        element.id = c
+      while (c < store.state.dataRows.length) {
+        store.commit('changeID', {
+          index: c,
+          value: c
+        })
         c++
       }
     }
@@ -316,50 +409,103 @@ export default {
       }
     }
 
+    const handleClickingCategory = (e, index) => {
+      store.commit('restartSubcategorias', index)
+      store.commit('restartDetalles', index)
+      // Reiniciar a valor por defecto el selector:
+      document.querySelector(`#select-subcategoria-${index}`).value = 'Subcategoría'
+      document.querySelector(`#select-detalle-${index}`).value = 'Detalle'
+      generateSubcategorias(e, index)
+      generateResumen(e, index)
+    }
+
+    const handleClickingSubcategory = (e, index) => {
+      generateDetalle(e, index)
+      generateResumen(e, index)
+    }
+
     // Funciones subcategorias
 
     const generateSubcategorias = (e, index) => {
-      const categoria = document.querySelector(`#categoria-${index}`).value
+      const categoria = document.querySelector(`#select-categoria-${index}`).value
       store.commit('restartSubcategorias')
 
       if (categoria == 'SOFTWARE') {
-        store.commit('addSubcategoria', 'SO')
-        store.commit('addSubcategoria', 'LICENCIAS')
-        store.commit('addSubcategoria', 'PAG WEB')
-        store.commit('addSubcategoria', 'APLICACIONES')
-        store.commit('addSubcategoria', 'CARGA/RETIRO PROD')
-        store.commit('addSubcategoria', 'PROYECTO MES')
-        store.commit('addSubcategoria', 'BBDD')
-        store.commit('addSubcategoria', 'AGENDAMIENTO WEB')
-        store.commit('addSubcategoria', 'CONSULTORA')
+        store.commit({
+          type: 'addSubcategoria',
+          index: index,
+          subcategorias:
+            [
+              'SO',
+              'LICENCIAS',
+              'PAG WEB',
+              'APLICACIONES',
+              'CARGA/RETIRO PROD',
+              'PROYECTO MES',
+              'BBDD',
+              'AGENDAMIENTO WEB',
+              'CONSULTORA'
+            ]
+        }
+        )
       } else if (categoria == 'HARDWARE') {
-        store.commit('addSubcategoria', 'IMPRESORA')
-        store.commit('addSubcategoria', 'TOUCH')
-        store.commit('addSubcategoria', 'UPS')
-        store.commit('addSubcategoria', 'LEC. CEDULA')
-        store.commit('addSubcategoria', 'LEC. QR')
-        store.commit('addSubcategoria', 'PANTALLA')
-        store.commit('addSubcategoria', 'LEC. HUELLA')
-        store.commit('addSubcategoria', 'FUENTE PODER')
-        store.commit('addSubcategoria', 'CHAPA CASILLERO')
-        store.commit('addSubcategoria', 'PLACA PUERTA')
-        store.commit('addSubcategoria', 'FUENTE PUERTA')
+        store.commit({
+          type: 'addSubcategoria',
+          index: index,
+          subcategorias: [
+            'IMPRESORA',
+            'TOUCH',
+            'UPS',
+            'LEC. CEDULA',
+            'LEC. QR',
+            'PANTALLA',
+            'LEC. HUELLA',
+            'FUENTE PODER',
+            'CHAPA CASILLERO',
+            'PLACA PUERTA',
+            'FUENTE PUERTA'
+          ]
+        })
       } else if (categoria == 'REDES') {
-        store.commit('addSubcategoria', 'RED')
-        store.commit('addSubcategoria', 'MASIVO')
-        store.commit('addSubcategoria', 'WEB SERVICE')
+        store.commit({
+          type: 'addSubcategoria',
+          index: index,
+          subcategorias: [
+            'RED',
+            'MASIVO',
+            'WEB SERVICE'
+          ]
+        })
       } else if (categoria == 'PANTALLA PRO') {
-        store.commit('addSubcategoria', 'CONFIGURACION')
-        store.commit('addSubcategoria', 'FISICO')
+        store.commit({
+          type: 'addSubcategoria',
+          index: index,
+          subcategorias: [
+            'CONFIGURACION',
+            'FISICO'
+          ]
+        })
       } else if (categoria == 'ADM WEB') {
-        store.commit('addSubcategoria', 'CREACION DE USUARIO')
-        store.commit('addSubcategoria', 'MODIFICACION DE USUARIO')
-        store.commit('addSubcategoria', 'CAMBIO PERFIL ESCRITORIOS')
+        store.commit({
+          type: 'addSubcategoria',
+          index: index,
+          subcategorias: [
+            'CREACION DE USUARIO',
+            'MODIFICACION DE USUARIO',
+            'CAMBIO PERFIL ESCRITORIOS'
+          ]
+        })
       } else if (categoria == 'CONSULTA/OTROS') {
-        store.commit('addSubcategoria', 'REPORTES')
-        store.commit('addSubcategoria', 'GESTIONES VARIAS')
-        store.commit('addSubcategoria', 'CONSULTAS')
-        store.commit('addSubcategoria', 'OTROS')
+        store.commit({
+          type: 'addSubcategoria',
+          index: index,
+          subcategorias: [
+            'REPORTES',
+            'GESTIONES VARIAS',
+            'CONSULTAS',
+            'OTROS'
+          ]
+        })
       }
       generateResumen(e, index)
     }
@@ -367,149 +513,348 @@ export default {
     // Funciones detalle
 
     const generateDetalle = (e, index) => {
-      const subcategoria = document.querySelector(`#subcategoria-${index}`).value
+      const subcategoria = store.state.dataRows[index].subcategoria
       store.commit('restartDetalles')
 
       if (subcategoria == 'SO') {
-        store.commit('addDetalle', 'CARGA MATRIZ')
-        store.commit('addDetalle', 'ERROR BOOTEO')
-        store.commit('addDetalle', 'CAMBIO DE HORA')
-        store.commit('addDetalle', 'CAMBIO DE RESOLUCION')
-        store.commit('addDetalle', 'CONFIGURACION COM')
-        store.commit('addDetalle', 'INICIO WINDOWS')
-        store.commit('addDetalle', 'REINICIO DE SERVICIOS')
-        store.commit('addDetalle', 'MODIFICACION REGEDIT')
+        store.commit({
+          type: 'addDetalle',
+          index: index,
+          detalles: [
+            'CARGA MATRIZ',
+            'ERROR BOOTEO',
+            'CAMBIO DE HORA',
+            'CAMBIO DE RESOLUCION',
+            'CONFIGURACION COM',
+            'INICIO WINDOWS',
+            'REINICIO DE SERVICIOS',
+            'MODIFICACION REGEDIT'
+          ]
+        })
       } else if (subcategoria == 'LICENCIAS') {
-        store.commit('addDetalle', 'NUEVA MATRIZ')
-        store.commit('addDetalle', 'CADUCA')
+        store.commit({
+          type: 'addDetalle',
+          index: index,
+          detalles: [
+            'NUEVA MATRIZ',
+            'CADUCA'
+          ]
+        })
       } else if (subcategoria == 'PAG WEB') {
-        store.commit('addDetalle', 'CAIDA REPORTES')
-        store.commit('addDetalle', 'CAIDA ADMINISTRACION')
-        store.commit('addDetalle', 'CAIDA MONITOREO')
-        store.commit('addDetalle', 'MODIFICACION DE SERVICIOS')
-        store.commit('addDetalle', 'AGREGAR/QUITAR SERVICIOS')
-        store.commit('addDetalle', 'MAGIC INFO')
+        store.commit({
+          type: 'addDetalle',
+          index: index,
+          detalles: [
+            'CAIDA REPORTES',
+            'CAIDA ADMINISTRACION',
+            'CAIDA MONITOREO',
+            'MODIFICACION DE SERVICIOS',
+            'AGREGAR/QUITAR SERVICIOS',
+            'MAGIC INFO',
+          ]
+        })
       } else if (subcategoria == 'APLICACIONES') {
-        store.commit('addDetalle', 'MOC API CAIDO')
-        store.commit('addDetalle', 'FRONT CAIDO')
-        store.commit('addDetalle', 'EMISOR CAIDO')
-        store.commit('addDetalle', 'SIN VOZ')
-        store.commit('addDetalle', 'DRIVERS')
-        store.commit('addDetalle', 'API IMPRESORA CAIDA')
-        store.commit('addDetalle', 'API TURNOS CAIDO')
-        store.commit('addDetalle', 'API PUERTAS CAIDO')
-        store.commit('addDetalle', 'CONFIGURACION PANWEB')
+        store.commit({
+          type: 'addDetalle',
+          index: index,
+          detalles: [
+            'MOC API CAIDO',
+            'FRONT CAIDO',
+            'EMISOR CAIDO',
+            'SIN VOZ',
+            'DRIVERS',
+            'API IMPRESORA CAIDA',
+            'API TURNOS CAIDO',
+            'API PUERTAS CAIDO',
+            'CONFIGURACION PANWEB',
+          ]
+        })
       } else if (subcategoria == 'CARGA/RETIRO PROD') {
-        store.commit('addDetalle', 'CARGA FALLIDA')
-        store.commit('addDetalle', 'RETIRO FALLIDO')
-        store.commit('addDetalle', 'RETIROS POR CIERRE')
+        store.commit({
+          type: 'addDetalle',
+          index: index,
+          detalles: [
+            'CARGA FALLIDA',
+            'RETIRO FALLIDO',
+            'RETIROS POR CIERRE'
+          ]
+        })
       } else if (subcategoria == 'PROYECTO MES') {
-        store.commit('addDetalle', 'DESINSTALACION VNC')
-        store.commit('addDetalle', 'MOC API')
+        store.commit({
+          type: 'addDetalle',
+          index: index,
+          detalles: [
+            'DESINSTALACION VNC',
+            'MOC API'
+          ]
+        })
       } else if (subcategoria == 'BBDD') {
-        store.commit('addDetalle', 'CAMBIO DE ESTRUCTURA')
-        store.commit('addDetalle', 'AGREGACION DE SEGMENTOS')
-        store.commit('addDetalle', 'AGREGACION DE CARTERAS')
-        store.commit('addDetalle', 'MODIFICACION VALORES PYME')
-        store.commit('addDetalle', 'BASE SERVER CENTRAL')
+        store.commit({
+          type: 'addDetalle',
+          index: index,
+          detalles: [
+            'CAMBIO DE ESTRUCTURA',
+            'AGREGACION DE SEGMENTOS',
+            'AGREGACION DE CARTERAS',
+            'MODIFICACION VALORES PYME',
+            'BASE SERVER CENTRAL'
+          ]
+        })
       } else if (subcategoria == 'AGENDAMIENTO WEB') {
-        store.commit('addDetalle', 'NO DESCARGA AGENDA')
-      } else if ('CONSULTORA') {
-        store.commit('addDetalle', 'CAIDO')
-        store.commit('addDetalle', 'ACTUALIZACION')
-        store.commit('addDetalle', 'URL ERRONEA')
+        store.commit({
+          type: 'addDetalle',
+          index: index,
+          detalles: [
+            'NO DESCARGA AGENDA'
+          ]
+        })
+      } else if (subcategoria == 'CONSULTORA') {
+        store.commit({
+          type: 'addDetalle',
+          index: index,
+          detalles: [
+            'CAIDO',
+            'ACTUALIZACION',
+            'URL ERRONEA'
+          ]
+        })
       } else if (subcategoria == 'IMPRESORA') {
-        store.commit('addDetalle', 'GUILLOTINA')
-        store.commit('addDetalle', 'PAPEL')
-        store.commit('addDetalle', 'TAPA')
-        store.commit('addDetalle', 'DRIVERS')
-        store.commit('addDetalle', 'CABEZAL TERMICO')
-        store.commit('addDetalle', 'NO RESPONDE')
+        store.commit({
+          type: 'addDetalle',
+          index: index,
+          detalles: [
+            'GUILLOTINA',
+            'PAPEL',
+            'TAPA',
+            'DRIVERS',
+            'CABEZAL TERMICO',
+            'NO RESPONDE'
+          ]
+        })
+
       } else if (subcategoria == 'TOUCH') {
-        store.commit('addDetalle', 'DAÑADO')
-        store.commit('addDetalle', 'NO RESPONDE')
+        store.commit({
+          type: 'addDetalle',
+          index: index,
+          detalles: [
+            'DAÑADO',
+            'NO RESPONDE'
+          ]
+        })
+
       } else if (subcategoria == 'UPS') {
-        store.commit('addDetalle', 'DAÑADA')
-        store.commit('addDetalle', 'PITIDO CONSTANTE')
+        store.commit({
+          type: 'addDetalle',
+          index: index,
+          detalles: [
+            'DAÑADA',
+            'PITIDO CONSTANTE'
+          ]
+        })
       } else if (subcategoria == 'LEC. CEDULA') {
-        store.commit('addDetalle', 'SUENA Y NO LEE')
+        store.commit({
+          type: 'addDetalle',
+          index: index,
+          detalles: [
+            'SUENA Y NO LEE'
+          ]
+        })
       } else if (subcategoria == 'LEC. QR') {
-        store.commit('addDetalle', 'NO SUENA')
+        store.commit(
+          {
+            type: 'addDetalle',
+            index: index,
+            detalles: [
+              'NO SUENA'
+            ]
+          })
       } else if (subcategoria == 'PANTALLA') {
-        store.commit('addDetalle', 'QUEMADA')
-        store.commit('addDetalle', 'DAÑADA')
-        store.commit('addDetalle', 'NO ENCIENDE')
-        store.commit('addDetalle', 'SIN CABLES')
+        store.commit({
+          type: 'addDetalle',
+          index: index,
+          detalles: [
+            'QUEMADA',
+            'DAÑADA',
+            'NO ENCIENDE',
+            'SIN CABLES']
+        })
+
       } else if (subcategoria == 'LEC. HUELLA') {
-        store.commit('addDetalle', 'NO ENCIENDE')
-        store.commit('addDetalle', 'NO LEE CORRECTAMENTE')
+        store.commit({
+          type: 'addDetalle',
+          index: index,
+          detalles: [
+            'NO ENCIENDE',
+            'NO LEE CORRECTAMENTE'
+          ]
+        })
+
       } else if (subcategoria == 'FUENTE PODER') {
-        store.commit('addDetalle', 'QUEMADA')
-        store.commit('addDetalle', 'DAÑADA')
+        store.commit({
+          type: 'addDetalle',
+          index: index,
+          detalles: [
+            'QUEMADA',
+            'DAÑADA'
+          ]
+        })
       } else if (subcategoria == 'CHAPA CASILLERO') {
-        store.commit('addDetalle', 'NO ENVIA INFORMACION')
+        store.commit({
+          type: 'addDetalle',
+          index: index,
+          detalles: [
+            'NO ENVIA INFORMACION'
+          ]
+        })
       } else if (subcategoria == 'PLACA PUERTA') {
-        store.commit('addDetalle', 'NO ENCIENDE')
+        store.commit({
+          type: 'addDetalle',
+          index: index,
+          detalles: [
+            'NO ENCIENDE'
+          ]
+        })
       } else if (subcategoria == 'FUENTE PUERTA') {
-        store.commit('addDetalle', 'DAÑADA')
-        store.commit('addDetalle', 'QUEMADA')
-        store.commit('addDetalle', 'NO ENCIENDE')
+        store.commit({
+          type: 'addDetalle',
+          index: index,
+          detalles: [
+            'DAÑADA',
+            'QUEMADA',
+            'NO ENCIENDE'
+          ]
+        })
       } else if (subcategoria == 'RED') {
-        store.commit('addDetalle', 'SUCURSAL SIN RED')
-        store.commit('addDetalle', 'PUNTO DE RED')
-        store.commit('addDetalle', 'EQUIPO SIN RED')
-        store.commit('addDetalle', 'INTERMITENCIA DE RED')
-        store.commit('addDetalle', 'DESBLOQUEO MAC')
+        store.commit({
+          type: 'addDetalle',
+          index: index,
+          detalles: [
+            'SUCURSAL SIN RED',
+            'PUNTO DE RED',
+            'EQUIPO SIN RED',
+            'INTERMITENCIA DE RED',
+            'DESBLOQUEO MAC'
+          ]
+        })
       } else if (subcategoria == 'MASIVO') {
-        // PASS
+        store.commit({
+          type: 'addDetalle',
+          index: index,
+          detalles: []
+        })
       } else if (subcategoria == 'WEB SERVICE') {
-        // PASS
+        store.commit({
+          type: 'addDetalle',
+          index: index,
+          detalles: []
+        })
       } else if (subcategoria == 'CONFIGURACION') {
-        store.commit('addDetalle', 'RELOJ DESACTUALIZADO')
-        store.commit('addDetalle', 'RESET')
-        store.commit('addDetalle', 'SERVIDOR')
-        store.commit('addDetalle', 'ACTUALIZACION PUBLICIDAD')
-        store.commit('addDetalle', 'REFRESCO PANTALLA')
-        store.commit('addDetalle', 'REINICIO REMOTO')
-        store.commit('addDetalle', 'CONFIGURACION INICIAL')
+        store.commit({
+          type: 'addDetalle',
+          index: index,
+          detalles: [
+            'RELOJ DESACTUALIZADO',
+            'RESET',
+            'SERVIDOR',
+            'ACTUALIZACION PUBLICIDAD',
+            'REFRESCO PANTALLA',
+            'REINICIO REMOTO',
+            'CONFIGURACION INICIAL'
+          ]
+        })
       } else if (subcategoria == 'FISICO') {
-        store.commit('addDetalle', 'DAÑADA')
-        store.commit('addDetalle', 'PUNTO RED')
-        store.commit('addDetalle', 'PUNTO ELECTRICO')
-        store.commit('addDetalle', 'QUEMADA')
-        store.commit('addDetalle', 'SIN CABLES')
-        store.commit('addDetalle', 'SIN CONTROL REMOTO')
+        store.commit({
+          type: 'addDetalle',
+          index: index,
+          detalles: [
+            'DAÑADA',
+            'PUNTO RED',
+            'PUNTO ELECTRICO',
+            'QUEMADA',
+            'SIN CABLES',
+            'SIN CONTROL REMOTO'
+          ]
+        })
       } else if (subcategoria == 'CREACION DE USUARIO') {
-        store.commit('addDetalle', 'USUARIO CARGADOR')
-        store.commit('addDetalle', 'EJECUTIVO/LLAMADOR')
-        store.commit('addDetalle', 'USUARIO ADMINISTRADOR')
+        store.commit({
+          type: 'addDetalle',
+          index: index,
+          detalles:
+            [
+              'USUARIO CARG,ADOR',
+              'EJECUTIVO/LLAMADOR',
+              'USUARIO ADMINISTRADOR'
+            ]
+        })
       } else if (subcategoria == 'MODIFICACION DE USUARIO') {
-        store.commit('addDetalle', 'CAMBIO DE SUCURSAL')
-        store.commit('addDetalle', 'MODIFICACION DE DATOS')
+        store.commit({
+          type: 'addDetalle',
+          index: index,
+          detalles:
+            [
+              'CAMBIO DE SUCURSAL',
+              'MODIFICACION DE DATOS'
+            ]
+        })
       } else if (subcategoria == 'CAMBIO PERFIL ESCRITORIOS') {
-        store.commit('addDetalle', 'CAMBIO DE SERVICIO')
-        store.commit('addDetalle', 'MODIFICACION/CREACION DE ESCRITORIO')
+        store.commit({
+          type: 'addDetalle',
+          index: index,
+          detalles:
+            [
+              'CAMBIO DE SERVICIO',
+              'MODIFICACION/CREACION DE ESCRITORIO'
+            ]
+        })
       } else if (subcategoria == 'REPORTES') {
-        store.commit('addDetalle', 'USABILIDAD')
-        store.commit('addDetalle', 'CONTESTABILIDAD')
-        store.commit('addDetalle', 'UPTIME')
-        store.commit('addDetalle', 'CONTINUIDAD OPERACIONAL')
-        store.commit('addDetalle', 'STATUS LOCKER')
+        store.commit({
+          type: 'addDetalle',
+          index: index,
+          detalles:
+            [
+              'USABILIDAD',
+              'CONTESTABILIDAD',
+              'UPTIME',
+              'CONTINUIDAD OPERACIONAL',
+              'STATUS LOCKER'
+            ]
+        })
       } else if (subcategoria == 'GESTIONES VARIAS') {
-        store.commit('addDetalle', 'INGRESO TECNICOS')
-        store.commit('addDetalle', 'COTIZACIONES')
-        store.commit('addDetalle', 'ATENCION TECNICOS')
+        store.commit({
+          type: 'addDetalle',
+          index: index,
+          detalles:
+            [
+              'INGRESO TECNICOS',
+              'COTIZACIONES',
+              'ATENCION TECNICOS'
+            ]
+        })
       } else if (subcategoria == 'CONSULTAS') {
-        store.commit('addDetalle', 'CONSULTA DE USUARIO')
-        store.commit('addDetalle', 'CONSULTA USO')
-        store.commit('addDetalle', 'SOLICITUD URL')
-        store.commit('addDetalle', 'INFORMACION ADICIONAL')
+        store.commit({
+          type: 'addDetalle',
+          index: index,
+          detalles:
+            [
+              'CONSULTA DE USUARIO',
+              'CONSULTA USO',
+              'SOLICITUD URL',
+              'INFORMACION ADICIONAL'
+            ]
+        })
       } else if (subcategoria == 'OTROS') {
-        store.commit('addDetalle', 'EQUIVOCADO')
-        store.commit('addDetalle', 'ESTATUS DE EQUIPO')
-        store.commit('addDetalle', 'TRANSFERENCIAS')
-        store.commit('addDetalle', 'CORTA/NO RESPONDEN')
-        store.commit('addDetalle', 'OTROS')
+        store.commit({
+          type: 'addDetalle',
+          index: index,
+          detalles:
+            [
+              'EQUIVOCADO',
+              'ESTATUS DE EQUIPO',
+              'TRANSFERENCIAS',
+              'CORTA/NO RESPONDEN',
+              'OTROS'
+            ]
+        })
       }
       generateResumen(e, index)
     }
@@ -555,7 +900,8 @@ export default {
       userOptions, generateResumen, machineOptions, addRow, deleteRow, responsibleOptions,
       filterSucursales, handleTypingCodigoSucursal, handleTypingNombreSucursal,
       handleClickingOption, handleClickingInput, generateSubcategorias, handleNombreSucursal, updateID,
-      debugFunction, searchSucursal, generateDetalle, detalles
+      debugFunction, searchSucursal, generateDetalle, detalles, handleClickingCategory, handleClickingSubcategory,
+      saveJSON, restoreSession, convertJSONToCSV, saveCSV
     }
   }
 }

@@ -8,7 +8,7 @@ export default createStore({
             {
                 "id": 0,
                 "numeroIncidente": "",
-                "codigoSucursal": "",
+                "codigoSucursal": 0,
                 "nombreSucursal": "",
                 "resumen": "",
                 "abierto": "",
@@ -30,8 +30,12 @@ export default createStore({
         ],
         searchResult: [],
         sucursales: sucursales,
-        subcategorias: [],
-        detalles: [],
+        subcategorias: [
+            {
+
+            },
+        ], //JSON
+        detalles: [], //JSON
         counter: 1,
     },
     getters: {
@@ -76,17 +80,20 @@ export default createStore({
         addSearchResult(state, value) {
             state.searchResult.push(value)
         },
-        restartSubcategorias(state) {
-            state.subcategorias = []
+        restartSubcategorias(state, index) {
+            state.subcategorias[index] = []
         },
-        addSubcategoria(state, value) {
-            state.subcategorias.push(value)
+        addSubcategoria(state, payload) {
+            state.subcategorias[payload.index] = payload.subcategorias
         },
-        restartDetalles(state) {
-            state.detalles = []
+        restartDetalles(state, index) {
+            state.detalles[index] = []
         },
-        addDetalle(state, value) {
-            state.detalles.push(value)
+        addDetalle(state, payload) {
+            state.detalles[payload.index] = payload.detalles
+        },
+        changeID(state, payload) {
+            state.dataRows[payload.index].id = payload.value
         }
     },
     actions: {
