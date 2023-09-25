@@ -4,8 +4,8 @@
             <slot></slot>
         </button>
         <ul class="dropdown-menu">
-            <li v-for="dropDownOption in dropdownOptions"><button class="dropdown-item" type="button"
-                    @click="handleDropDown">{{ dropDownOption }}</button></li>
+            <li v-for="option in dropdownOptions"><button class="dropdown-item" type="button"
+                    @click="handleDropDown">{{ option }}</button></li>
         </ul>
     </div>
 </template>
@@ -18,7 +18,7 @@ export default {
     props: {
         dropdownOptions: Array
     },
-    setup() {
+    setup(props) {
         const handleDropDown = (e) => { // Maneja el botón de nombres
             let selectedName = e.target.innerHTML
             store.commit('selectName', selectedName)

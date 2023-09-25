@@ -1,4 +1,4 @@
-<!-- Por hacer: Implementar Modelo y Territorial -->
+<!-- Por hacer:  -->
 
 <template>
   <div class="container-fluid bg-dark">
@@ -14,7 +14,6 @@
       <!-- Botón invisible modal -->
       <button type="button" class="btn btn-primary d-none" id="modal-button" data-bs-toggle="modal"
         data-bs-target="#exampleModal">
-        Launch demo modal
       </button>
 
       <!-- Modal -->
@@ -54,7 +53,7 @@
       </div>
     </div>
 
-    <button class="btn btn-primary d-none" @click="debugFunction($event, 0)">Debug</button>
+    <button class="btn btn-primary d-none">Debug</button>
 
     <hr class="text-secondary">
 
@@ -94,7 +93,7 @@
                 <input class="form-check-input" type="checkbox" :id="`checkbox-${index}`" value="seEnviaTecnico"
                   style="width: 1rem; height: 1rem;" @click="handleCheck($event, index)">
                 <label class="form-check-label" :for="`checkbox-${index}`">¿Se envía técnico?</label>
-              </div>0
+              </div>
 
             </th>
             <td :id="`id-${index}`">
