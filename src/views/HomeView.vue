@@ -12,7 +12,45 @@
       <input type="file" id="fileInput" accept=".json" style="display: none;">
       <button class="btn btn-secondary d-block" @click="saveJSON">Descargar JSON</button>
       <button class="btn btn-secondary d-block mt-2" @click="saveCSV">Descargar CSV (para Excel)</button>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary d-none" id="modal-button" data-bs-toggle="modal"
+        data-bs-target="#exampleModal">
+        Launch demo modal
+      </button>
 
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Aviso</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>Esta es una versión <strong>beta</strong> del sistema de interacciones. Pese a que se encuentra en un
+                estado en que es
+                utilizable, hay varias funciones que aún no se implementan y otras que podrían fallar sin motivo aparente.
+                Esto debido, principalmente, a que soy un programador mediocre.</p>
+              <p>Lista de cosas por hacer:</p>
+              <ul>
+                <li>Implementar una forma de importar los .JSON guardados sin entrar a opciones del navegador.</li>
+                <li>Agregar un checkbox para indicar si se envió técnico. Esto debería agregar "(T)" al final del resumen
+                  y cambiar el campo
+                  Solución Responsable a "TERRENO". Actualmente, el campo se encuentra vacío por defecto y no tiene
+                  validación de datos. Usar con <strong>cuidado</strong>.
+                </li>
+                <li>Cuando se marque una sucursal para enviar técnico, recordar enviar correo y vincular a Service Now
+                  para crear la interacción.
+                  Evaluar usar plantillas de correo o proveerlas en texto plano.
+                </li>
+              </ul>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <button class="btn btn-primary d-none" @click="restoreSession">Debug</button>
@@ -51,7 +89,6 @@
             <th scope="row">
               <a @click="addRow" class="me-n2" v-if="index === dataRows.length - 1"><font-awesome-icon icon="plus" /></a>
               <a @click="deleteRow(index, 1)" class="ms-4"><font-awesome-icon icon="minus" /></a>
-              <a href="#" class="ms-2"><font-awesome-icon icon="pen-square" /></a>
             </th>
             <td :id="`id-${index}`">
               <!-- ID -->
@@ -227,8 +264,15 @@ export default {
 
     // Funciones
 
-    onMounted(() => restoreSession())
+    onMounted(() => {
+      restoreSession()
+      showWarning()
+    })
     onUpdated(() => saveJSONToBrowserStorage())
+
+    const showWarning = () => {
+      document.querySelector('#modal-button').click()
+    }
 
     async function restoreSession() {
       if (localStorage.getItem('savedData') !== null) {
@@ -907,7 +951,7 @@ export default {
       filterSucursales, handleTypingCodigoSucursal, handleTypingNombreSucursal,
       handleClickingOption, handleClickingInput, generateSubcategorias, handleNombreSucursal, updateID,
       debugFunction, searchSucursal, generateDetalle, detalles, handleClickingCategory, handleClickingSubcategory,
-      saveJSON, restoreSession, convertJSONToCSV, saveCSV
+      saveJSON, restoreSession, convertJSONToCSV, saveCSV, showWarning
     }
   }
 }
