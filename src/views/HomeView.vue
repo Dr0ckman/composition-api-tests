@@ -43,6 +43,13 @@
                   para crear la interacción.
                   Evaluar usar plantillas de correo o proveerlas en texto plano.
                 </li>
+                <li>Conseguir una base de datos de usuarios/ejecutivos. No tiene que ser necesariamente completa.
+                  Se puede obtener una desde el administrador de ADN, pero van a faltar los ejecutivos de Work/Café, es
+                  decir que si llaman desde Locker, van a haber personas que no figuren en la base. No es necesario
+                  tampoco que estén vinculados a una sucursal. Es principalmente para tener un buscador de ejecutivos
+                  decente y no tener que usar la guía de anexos para todo. Probablemente termine sacando esa info de la
+                  misma guía de anexos con un crawler.
+                </li>
               </ul>
             </div>
             <div class="modal-footer">
@@ -97,12 +104,12 @@
             <td :id="`numero-incidente-${index}`">
               <!-- Número incidente -->
               <input type="text" class="form-control bg-secondary bg-gradient" style="--bs-bg-opacity: .8;" @input="
-                dataRows[index].numeroIncidente = $event.target.value" placeholder="Número incidente">
+                dataRows[index].numeroIncidente = $event.target.value" :value="dataRows[index].numeroIncidente">
             </td>
             <td :id="`codigo-sucursal-${index}`">
               <!-- Código sucursal -->
-              <input type="text" class="form-control" @input="handleTypingCodigoSucursal($event, index)"
-                :value="dataRows[index].codigoSucursal">
+              <input type="text" :id="`input-codigo-${index}`" class="form-control"
+                @input="handleTypingCodigoSucursal($event, index)" :value="dataRows[index].codigoSucursal">
             </td>
             <td :id="`nombre-sucursal-${index}`">
               <!-- Nombre de sucursal -->
@@ -139,7 +146,8 @@
             <td :id="`tipo-${index}`">
               <!-- Tipo -->
               <select class="form-select" @input="dataRows[index].tipo = $event.target.value"
-                @click="generateResumen($event, index)" :value="dataRows[index].tipo">
+                @click="generateResumen($event, index)" :value="dataRows[index].tipo" data-bs-toggle="tooltip"
+                title="Tipo" data-bs-placement="bottom">
                 <option selected>Tipo</option>
                 <option value="CONSULTA">CONSULTA</option>
                 <option value="SOLICITUD">SOLICITUD</option>
@@ -172,7 +180,8 @@
             <td :id="`detalle-${index}`">
               <!-- Detalle -->
               <select class="form-select" @input="dataRows[index].detalle = $event.target.value"
-                @click="generateResumen($event, index)" :id="`select-detalle-${index}`">
+                @click="generateResumen($event, index)" :id="`select-detalle-${index}`" data-bs-toggle="tooltip"
+                title="Detalle" data-bs-placement="bottom">
                 <option selected>{{ dataRows[index].detalle }}</option>
                 <option :value="detalle" v-for="detalle in detalles[index]">{{ detalle }}</option>
               </select>
@@ -238,6 +247,7 @@
 // Componentes
 import store from '../store/index'
 import Dropdown from '../components/Dropdown.vue'
+import { Tooltip } from 'bootstrap'
 
 // VUE
 import { computed, ref, onMounted, nextTick, onUpdated } from 'vue'
@@ -261,14 +271,16 @@ export default {
     const machineOptions = ["Tipo de máquina", "ADN", "Locker"]
     const responsibleOptions = ["Solución Responsable", "Mesa de autoservicio", "Terreno"]
 
-
     // Funciones
 
     onMounted(() => {
       restoreSession()
       showWarning()
     })
-    onUpdated(() => saveJSONToBrowserStorage())
+
+    onUpdated(() => {
+      saveJSONToBrowserStorage()
+    })
 
     const showWarning = () => {
       document.querySelector('#modal-button').click()
@@ -388,13 +400,16 @@ export default {
     }
 
     const handleTypingCodigoSucursal = (e, index) => {
-      e.target.parentElement.nextElementSibling.children[0].value = ""
+      document.getElementById(`input-nombre-${index}`).value = ""
       store.state.dataRows[index].codigoSucursal = e.target.value
       if (filterSucursales('codigoSucursal', Number(e.target.value))[0] !== undefined) {
-        e.target.parentElement.nextElementSibling.children[0].value = filterSucursales('codigoSucursal', Number(e.target.value))[0].sucursal
+        document.querySelector(`#input-nombre-${index}`).value = filterSucursales('codigoSucursal', Number(e.target.value))[0].sucursal
         store.state.dataRows[index].nombreSucursal = filterSucursales('codigoSucursal', Number(e.target.value))[0].sucursal
         store.state.dataRows[index].modelo = filterSucursales('codigoSucursal', Number(e.target.value))[0].modelo
         store.state.dataRows[index].territorial = filterSucursales('codigoSucursal', Number(e.target.value))[0].territorial
+      } else {
+        document.querySelector(`#input-nombre-${index}`).value = ""
+        store.state.dataRows[index].nombreSucursal = ""
       }
       generateResumen(e, index)
     }
@@ -412,21 +427,23 @@ export default {
     }
 
     const handleTypingNombreSucursal = (e, index) => {
-      if (e.target.nextElementSibling !== null) {
-        if (!e.target.nextElementSibling.classList.contains('show')) { // Si el menú está cerrado, abrirlo. Si está abierto, no hacer nada.
-          e.target.nextElementSibling.classList.add('show')
+      if (document.querySelector(`collapse-nombre-${index}`) !== null) {
+        if (!document.querySelector(`#nombre-sucursal-${index}`).classList.contains('show')) { // Si el menú está cerrado, abrirlo. Si está abierto, no hacer nada.
+          document.querySelector(`#nombre-sucursal-${index}`).classList.add('show')
         } else {
           // pass
         }
       }
 
-      e.target.parentElement.previousElementSibling.children[0].value = ""
+      document.querySelector(`#input-codigo-${index}`).value = ""
       store.state.dataRows[index].nombreSucursal = e.target.value
       if (filterSucursales('sucursal', e.target.value)[0] !== undefined) {
-        e.target.parentElement.previousElementSibling.children[0].value = filterSucursales('sucursal', e.target.value)[0].codigoSucursal
+        document.querySelector(`#input-codigo-${index}`).value = filterSucursales('sucursal', e.target.value)[0].codigoSucursal
         store.state.dataRows[index].codigoSucursal = filterSucursales('sucursal', String(e.target.value))[0].codigoSucursal
         store.state.dataRows[index].modelo = filterSucursales('sucursal', String(e.target.value))[0].modelo
         store.state.dataRows[index].territorial = filterSucursales('sucursal', String(e.target.value))[0].territorial
+      } else {
+        document.querySelector(`#input-codigo-${index}`).value = ""
       }
     }
 
@@ -440,9 +457,12 @@ export default {
       const inputElement = document.querySelector(`#input-nombre-${index}`)
       inputElement.value = e.target.innerHTML
 
-      store.state.dataRows[index].nombreSucursal = e.target.innerHTML
+      e.stopPropagation();
+
       if (filterSucursales('sucursal', inputElement.value)[0] !== undefined) {
-        e.target.parentElement.parentElement.previousElementSibling.children[0].value = filterSucursales('sucursal', inputElement.value)[0].codigoSucursal
+        store.state.dataRows[index].nombreSucursal = e.target.innerHTML
+        document.querySelector(`#input-codigo-${index}`).value = filterSucursales('sucursal', inputElement.value)[0].codigoSucursal
+        console.log(e.target.parentElement.parentElement.previousElementSibling.children[0])
         store.state.dataRows[index].codigoSucursal = filterSucursales('sucursal', inputElement.value)[0].codigoSucursal
         store.state.dataRows[index].modelo = filterSucursales('sucursal', inputElement.value)[0].modelo
         store.state.dataRows[index].territorial = filterSucursales('sucursal', inputElement.value)[0].territorial
