@@ -9,10 +9,9 @@
     <Dropdown :dropdownOptions="userOptions">{{ selectedName }}</Dropdown>
 
     <div>
-      <input type="file" id="fileInput" accept=".json" style="display: none;">
       <button class="btn btn-secondary d-block" @click="saveJSON">Descargar JSON</button>
       <button class="btn btn-secondary d-block mt-2" @click="saveCSV">Descargar CSV (para Excel)</button>
-      <!-- Button trigger modal -->
+      <!-- Botón invisible modal -->
       <button type="button" class="btn btn-primary d-none" id="modal-button" data-bs-toggle="modal"
         data-bs-target="#exampleModal">
         Launch demo modal
@@ -34,11 +33,6 @@
               <p>Lista de cosas por hacer:</p>
               <ul>
                 <li>Implementar una forma de importar los .JSON guardados sin entrar a opciones del navegador.</li>
-                <li>Agregar un checkbox para indicar si se envió técnico. Esto debería agregar "(T)" al final del resumen
-                  y cambiar el campo
-                  Solución Responsable a "TERRENO". Actualmente, el campo se encuentra vacío por defecto y no tiene
-                  validación de datos. Usar con <strong>cuidado</strong>.
-                </li>
                 <li>Cuando se marque una sucursal para enviar técnico, recordar enviar correo y vincular a Service Now
                   para crear la interacción.
                   Evaluar usar plantillas de correo o proveerlas en texto plano.
@@ -60,7 +54,7 @@
       </div>
     </div>
 
-    <button class="btn btn-primary d-none" @click="restoreSession">Debug</button>
+    <button class="btn btn-primary d-none" @click="debugFunction($event, 0)">Debug</button>
 
     <hr class="text-secondary">
 
@@ -68,7 +62,7 @@
       <table class="table table-dark table-striped table-sm">
         <thead>
           <tr>
-            <th scope="col">Acciones</th>
+            <th scope="col" style="min-width: 20rem;">Acciones</th>
             <th scope="col">ID</th>
             <th scope="col">Número Incidente</th>
             <th scope="col">Código Sucursal</th>
@@ -93,9 +87,15 @@
         </thead>
         <tbody class="align-middle">
           <tr v-for="(item, index) in dataRows">
-            <th scope="row">
+            <th scope="row" class="ps-3">
               <a @click="addRow" class="me-n2" v-if="index === dataRows.length - 1"><font-awesome-icon icon="plus" /></a>
               <a @click="deleteRow(index, 1)" class="ms-4"><font-awesome-icon icon="minus" /></a>
+              <div class="form-check form-check-inline ms-2 align-middle">
+                <input class="form-check-input" type="checkbox" :id="`checkbox-${index}`" value="seEnviaTecnico"
+                  style="width: 1rem; height: 1rem;" @click="handleCheck($event, index)">
+                <label class="form-check-label" :for="`checkbox-${index}`">¿Se envía técnico?</label>
+              </div>0
+
             </th>
             <td :id="`id-${index}`">
               <!-- ID -->
@@ -124,7 +124,7 @@
                 </button>
               </ul>
             </td>
-            <td :id="`resumen-${index}`" @click="generateResumen($event, index)">
+            <td :id="`resumen-${index}`">
               <!-- Resumen -->
               {{ dataRows[index].resumen }}
             </td>
@@ -146,8 +146,7 @@
             <td :id="`tipo-${index}`">
               <!-- Tipo -->
               <select class="form-select" @input="dataRows[index].tipo = $event.target.value"
-                @click="generateResumen($event, index)" :value="dataRows[index].tipo" data-bs-toggle="tooltip"
-                title="Tipo" data-bs-placement="bottom">
+                @click="generateResumen($event, index)" :value="dataRows[index].tipo">
                 <option selected>Tipo</option>
                 <option value="CONSULTA">CONSULTA</option>
                 <option value="SOLICITUD">SOLICITUD</option>
@@ -180,8 +179,7 @@
             <td :id="`detalle-${index}`">
               <!-- Detalle -->
               <select class="form-select" @input="dataRows[index].detalle = $event.target.value"
-                @click="generateResumen($event, index)" :id="`select-detalle-${index}`" data-bs-toggle="tooltip"
-                title="Detalle" data-bs-placement="bottom">
+                @click="generateResumen($event, index)" :id="`select-detalle-${index}`">
                 <option selected>{{ dataRows[index].detalle }}</option>
                 <option :value="detalle" v-for="detalle in detalles[index]">{{ detalle }}</option>
               </select>
@@ -213,10 +211,7 @@
               {{ dataRows[index].territorial }}
             </td>
             <td :id="`solucion-responsable-${index}`">
-              <!-- Solucion Responsable -->
-              <input type="text" class="form-control bg-secondary bg-gradient"
-                @input="dataRows[index].solucionResponsable = $event.target.value"
-                :value="dataRows[index].solucionResponsable">
+              {{ dataRows[index].solucionResponsable }}
             </td>
             <td :id="`tipo-maquina-${index}`">
               <!-- Tipo de máquina -->
@@ -286,7 +281,7 @@ export default {
       document.querySelector('#modal-button').click()
     }
 
-    async function restoreSession() {
+    async function restoreSession(e, index) {
       if (localStorage.getItem('savedData') !== null) {
         const savedData = JSON.parse(localStorage.getItem('savedData'))
         while (store.state.dataRows.length < savedData.length) {
@@ -316,7 +311,11 @@ export default {
           store.state.dataRows[c].modelo = savedData[c].modelo
           store.state.dataRows[c].territorial = savedData[c].territorial
           store.state.dataRows[c].solucionResponsable = savedData[c].solucionResponsable
+          store.state.dataRows[c].solucionResponsable == 'TERRENO'
+            ? document.querySelector(`#checkbox-${c}`).checked = true
+            : document.querySelector(`#checkbox-${c}`).checked = false
           store.state.dataRows[c].tipoMaquina = savedData[c].tipoMaquina
+
           c++
         }
       }
@@ -353,7 +352,7 @@ export default {
 
     const convertJSONToCSV = () => {
       const items = store.state.dataRows
-      const replacer = (key, value) => value === null ? '' : value // specify how you want to handle null values here
+      const replacer = (key, value) => value === null ? '' : value
       const header = Object.keys(items[0])
       const csv = [
         header.join(','), // header row first
@@ -956,13 +955,21 @@ export default {
         // pass
       }
 
-      store.state.dataRows[index].resumen = `Autoservicios | ADN|LOCKER (${codigoSucursal}) ${nombreSucursal} | ${categoria} | ${subcategoria} | ${detalle} | ${tipo} | ${codigoMaquina}`
+      store.state.dataRows[index].resumen = `Autoservicios | ADN|LOCKER (${codigoSucursal}) ${nombreSucursal} | ${categoria} | ${subcategoria} | ${detalle} | ${tipo} | ${codigoMaquina} ${store.state.dataRows[index].solucionResponsable == 'TERRENO' ? '(T)' : ''}`
     }
 
-    const debugFunction = () => {
-      for (let sucursal of sucursales.value) {
-        console.log(sucursal.sucursal)
-      }
+    const debugFunction = (e, index) => {
+      document.querySelector(`#checkbox-${index}`).checked
+        ? store.state.dataRows[index].solucionResponsable = 'TERRENO'
+        : store.state.dataRows[index].solucionResponsable = 'MESA AUTOSERVICIO'
+      generateResumen(e, index)
+    }
+
+    const handleCheck = (e, index) => {
+      document.querySelector(`#checkbox-${index}`).checked
+        ? store.state.dataRows[index].solucionResponsable = 'TERRENO'
+        : store.state.dataRows[index].solucionResponsable = 'MESA AUTOSERVICIO'
+      generateResumen(e, index)
     }
 
     return {
@@ -971,7 +978,7 @@ export default {
       filterSucursales, handleTypingCodigoSucursal, handleTypingNombreSucursal,
       handleClickingOption, handleClickingInput, generateSubcategorias, handleNombreSucursal, updateID,
       debugFunction, searchSucursal, generateDetalle, detalles, handleClickingCategory, handleClickingSubcategory,
-      saveJSON, restoreSession, convertJSONToCSV, saveCSV, showWarning
+      saveJSON, restoreSession, convertJSONToCSV, saveCSV, showWarning, handleCheck
     }
   }
 }

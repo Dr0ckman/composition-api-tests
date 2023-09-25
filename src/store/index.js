@@ -24,7 +24,7 @@ export default createStore({
                 "abiertoPara": "",
                 "modelo": "",
                 "territorial": "",
-                "solucionResponsable": "",
+                "solucionResponsable": "MESA AUTOSERVICIO",
                 "tipoMaquina": ""
             }
         ],
@@ -62,7 +62,7 @@ export default createStore({
                     "abiertoPara": "",
                     "modelo": "",
                     "territorial": "",
-                    "solucionResponsable": "",
+                    "solucionResponsable": "MESA AUTOSERVICIO",
                     "tipoMaquina": ""
                 })
             state.counter++
