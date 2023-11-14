@@ -58,7 +58,7 @@
     <hr class="text-secondary">
 
     <div>
-      <table class="table table-dark table-striped table-sm">
+      <table class="table table-sm table-dark table-striped table-responsive">
         <thead>
           <tr>
             <th scope="col" style="min-width: 20rem;">Acciones</th>
@@ -84,7 +84,7 @@
             <th scope="col">Tipo de máquina</th>
           </tr>
         </thead>
-        <tbody class="align-middle">
+        <tbody class="align-middle table-group-divider">
           <tr v-for="(item, index) in dataRows">
             <th scope="row" class="ps-3">
               <a @click="addRow" class="me-n2" v-if="index === dataRows.length - 1"><font-awesome-icon icon="plus" /></a>
